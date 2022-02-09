@@ -7,8 +7,6 @@ extern Motus::Application* Motus::CreateApplication();
 // Entry Point
 int main() {
 	Motus::Logger::Init();
-	
-	
 
 	Motus::Application* app = Motus::CreateApplication();
 	app->Run();

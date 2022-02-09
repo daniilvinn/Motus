@@ -17,6 +17,6 @@ public:
 
 Motus::Application* Motus::CreateApplication()
 {
-	MT_CORE_INFO("Creating application...");
+	MT_CLIENT_INFO("Creating application...");
 	return new Sandbox();
 }
