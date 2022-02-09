@@ -1,6 +1,5 @@
-#include <iostream>
-
 #include <Motus.h>
+
 
 class Sandbox : public Motus::Application {
 public:
@@ -15,11 +14,9 @@ public:
 	}
 };
 
-int main() {
-	
-	Sandbox sandbox;
-	sandbox.Run();
 
-
-	system("pause");
+Motus::Application* Motus::CreateApplication()
+{
+	MT_CORE_INFO("Creating application...");
+	return new Sandbox();
 }

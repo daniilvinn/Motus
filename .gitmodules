@@ -1,0 +1,3 @@
+[submodule "Motus/vendor/spdlog"]
+	path = Motus/vendor/spdlog
+	url = https://github.com/gabime/spdlog

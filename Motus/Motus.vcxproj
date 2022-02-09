@@ -11,11 +11,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Motus\Logger.h" />
     <ClInclude Include="src\Motus.h" />
     <ClInclude Include="src\Motus\Application.h" />
     <ClInclude Include="src\Motus\Core.h" />
+    <ClInclude Include="src\Motus\EntryPoint.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Motus\Logger.cpp" />
     <ClCompile Include="src\Motus\Application.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -65,8 +68,9 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>MT_PLATFORM_WINDOWS;MOTUS_BUILD_DLL</PreprocessorDefinitions>
+      <PreprocessorDefinitions>MT_PLATFORM_WINDOWS;MOTUS_BUILD_DLL;_DEBUG</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)Motus\vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -81,6 +85,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>MT_PLATFORM_WINDOWS;MOTUS_BUILD_DLL</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)Motus\vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

@@ -9,5 +9,8 @@ namespace Motus {
 		Application();
 		virtual ~Application();
 		void Run();
+		
 	};
+
+	Application* CreateApplication();
 }
