@@ -9,3 +9,9 @@
 #else
 	#error MOTUS_CORE::ERROR: Motus currently supports only Windows platform!
 #endif
+
+#ifdef MT_DEBUG
+	#define MT_ASSERTS
+#endif
+
+#define BIT(x) (1 << x)

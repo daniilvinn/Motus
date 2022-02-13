@@ -18,14 +18,14 @@ namespace Motus {
 }
 
 // Log macros definitions are available if Motus is on Debug mode.
-#ifdef _DEBUG
+#ifdef MT_DEBUG
 	#define MT_CORE_FATAL(...)		::Motus::Logger::GetCoreLogger()->critical(__VA_ARGS__)
 	#define MT_CORE_ERROR(...)		::Motus::Logger::GetCoreLogger()->error(__VA_ARGS__)
 	#define MT_CORE_WARN(...)		::Motus::Logger::GetCoreLogger()->warn(__VA_ARGS__)
 	#define MT_CORE_INFO(...)		::Motus::Logger::GetCoreLogger()->info(__VA_ARGS__)
 	#define MT_CORE_TRACE(...)		::Motus::Logger::GetCoreLogger()->trace(__VA_ARGS__)
 
-	#define MT_CLIENT_FATAL(...)	::Motus::Logger::GetClientLogger()->fatal(__VA_ARGS__)
+	#define MT_CLIENT_FATAL(...)	::Motus::Logger::GetClientLogger()->critical(__VA_ARGS__)
 	#define MT_CLIENT_ERROR(...)	::Motus::Logger::GetClientLogger()->error(__VA_ARGS__)
 	#define MT_CLIENT_WARN(...)		::Motus::Logger::GetClientLogger()->warn(__VA_ARGS__)
 	#define MT_CLIENT_INFO(...)		::Motus::Logger::GetClientLogger()->info(__VA_ARGS__)

@@ -4,6 +4,9 @@
     <Filter Include="Motus">
       <UniqueIdentifier>{FD39AF0D-694E-D7BE-32D0-7A1E9EA3D3EF}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Motus\Events">
+      <UniqueIdentifier>{4127BAE3-2D8A-4988-D60F-823EC251150B}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Motus.h" />
@@ -15,6 +18,9 @@
     </ClInclude>
     <ClInclude Include="src\Motus\EntryPoint.h">
       <Filter>Motus</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Motus\Events\Event.h">
+      <Filter>Motus\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Motus\Logger.h">
       <Filter>Motus</Filter>
