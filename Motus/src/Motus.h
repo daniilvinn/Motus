@@ -5,6 +5,11 @@
 #include "Motus/Application.h"
 #include "Motus/Logger.h"
 
+// ------Events---------------------------
+#include "Motus/Events/ApplicationEvent.h"
+#include "Motus/Events/KeyEvent.h"
+#include "Motus/Events/MouseEvent.h"
+// ---------------------------------------
 
 // -----Entry Point----------
 #include "Motus/EntryPoint.h"

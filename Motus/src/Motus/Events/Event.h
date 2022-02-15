@@ -17,7 +17,7 @@ namespace Motus {
 	};
 
 	// All possible event categories, stored as bit value to be able to 
-	// store event with 2 or more categoties in one `int` variable.
+	// store event with 2 or more categories in one `int` variable.
 	enum EventCategory {
 		None = 0,
 		ApplicationEventCategory	= BIT(1),
@@ -58,9 +58,36 @@ namespace Motus {
 	};
 
 
-	// TODO: Event Dispatcher class
-	class MOTUS_API EventDispatcher {
-		
+	// Event Dispatcher Class implementation 
+	class EventDispatcher
+	{
+		template <typename T>
+		using EventFunction = std::function<bool(T&)>
+	public:
+		// Constructor
+		EventDispatcher(Event& event)
+			: m_Event(event) {}
+
+		// F will be deduced by the compiler
+		template<typename T>
+		bool Dispatch(EventFunction<T> function)
+		{
+			if (m_Event.GetEventType() == T::GetStaticType())
+			{
+				m_Event.m_IsHandled |= function(static_cast<T&>(m_Event));
+				return true;
+			}
+			return false;
+		}
+	private:
+		Event& m_Event;
 	};
+
+	inline std::ostream& operator<<(std::ostream& outputStream, const Event& event) {
+		return outputStream << event.GetLogInfo();
+	};
+
+
+
 
 } // namespace Motus

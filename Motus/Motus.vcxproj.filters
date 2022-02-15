@@ -25,6 +25,9 @@
     <ClInclude Include="src\Motus\Logger.h">
       <Filter>Motus</Filter>
     </ClInclude>
+    <ClInclude Include="src\Motus\Events\ApplicationEvent.h" />
+    <ClInclude Include="src\Motus\Events\KeyEvent.h" />
+    <ClInclude Include="src\Motus\Events\MouseEvent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Motus\Application.cpp">
