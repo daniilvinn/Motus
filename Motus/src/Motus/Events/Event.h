@@ -62,7 +62,7 @@ namespace Motus {
 	class EventDispatcher
 	{
 		template <typename T>
-		using EventFunction = std::function<bool(T&)>
+		using EventFunction = std::function<bool(T&)>;
 	public:
 		// Constructor
 		EventDispatcher(Event& event)

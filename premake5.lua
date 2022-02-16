@@ -18,6 +18,13 @@ project "Motus"
 	targetdir("bin/" .. outputdir .. "/%{prj.name}")
 	objdir("bin-int/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "motus_pch.h"
+	pchsource "Motus/src/motus_pch.cpp"
+
+	flags {
+		"MultiProcessorCompile"
+	}
+
 	files 
 	{
 		"%{prj.name}/src/**.h",
@@ -66,6 +73,10 @@ project "Sandbox"
 
 	targetdir("bin/" .. outputdir .. "/%{prj.name}")
 	objdir("bin-int/" .. outputdir .. "/%{prj.name}")
+	
+	flags {
+		"MultiProcessorCompile"
+	}
 
 	files 
 	{

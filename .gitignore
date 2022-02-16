@@ -31,6 +31,7 @@ bld/
 [Oo]ut/
 [Ll]og/
 [Ll]ogs/
+[Bb]in-int/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
@@ -75,8 +76,8 @@ StyleCopReport.xml
 *.ilk
 *.meta
 *.obj
+*.tlog
 *.iobj
-*.pch
 *.pdb
 *.ipdb
 *.pgc

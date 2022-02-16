@@ -19,15 +19,22 @@
     <ClInclude Include="src\Motus\EntryPoint.h">
       <Filter>Motus</Filter>
     </ClInclude>
+    <ClInclude Include="src\Motus\Events\ApplicationEvent.h">
+      <Filter>Motus\Events</Filter>
+    </ClInclude>
     <ClInclude Include="src\Motus\Events\Event.h">
+      <Filter>Motus\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Motus\Events\KeyEvent.h">
+      <Filter>Motus\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Motus\Events\MouseEvent.h">
       <Filter>Motus\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Motus\Logger.h">
       <Filter>Motus</Filter>
     </ClInclude>
-    <ClInclude Include="src\Motus\Events\ApplicationEvent.h" />
-    <ClInclude Include="src\Motus\Events\KeyEvent.h" />
-    <ClInclude Include="src\Motus\Events\MouseEvent.h" />
+    <ClInclude Include="src\motus_pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Motus\Application.cpp">
@@ -36,5 +43,6 @@
     <ClCompile Include="src\Motus\Logger.cpp">
       <Filter>Motus</Filter>
     </ClCompile>
+    <ClCompile Include="src\motus_pch.cpp" />
   </ItemGroup>
 </Project>

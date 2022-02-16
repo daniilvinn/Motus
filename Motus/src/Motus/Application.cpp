@@ -1,4 +1,7 @@
+#include "motus_pch.h"
+
 #include "Application.h"
+#include "Logger.h"
 
 namespace Motus {
 	Application::Application() 
