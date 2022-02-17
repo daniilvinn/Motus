@@ -1,6 +1,7 @@
 #include "motus_pch.h"
 
 #include "Application.h"
+#include "Motus/Events/KeyEvent.h"
 #include "Logger.h"
 
 namespace Motus {
@@ -15,6 +16,10 @@ namespace Motus {
 
 	void Application::Run()
 	{
+
+		KeyPressedEvent e(56, 0);
+		MT_CORE_TRACE(e.GetLogInfo().c_str());
+
 		while (true)
 		{
 

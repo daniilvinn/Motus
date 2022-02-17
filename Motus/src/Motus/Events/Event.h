@@ -13,7 +13,7 @@ namespace Motus {
 		WindowClose, WindowMoved, WindowResize, WindowFocus, WindowUnfocus,
 		AppTick, AppUpdate, AppRender,
 		KeyPressed, KeyReleased,
-		MouseButtonPressed, MouseButtonReleased, MouseMove, MouseScrolled
+		MouseButtonPressed, MouseButtonReleased, MouseMoved, MouseScrolled
 	};
 
 	// All possible event categories, stored as bit value to be able to 
