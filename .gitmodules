@@ -3,4 +3,4 @@
 	url = https://github.com/gabime/spdlog
 [submodule "Motus/vendor/GLFW"]
 	path = Motus/vendor/GLFW
-	url = https://github.com/daniilvinn/glfw
+	url = https://github.com/daniilvinn/glfw.git

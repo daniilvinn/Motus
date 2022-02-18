@@ -6,7 +6,7 @@
 namespace Motus {
 	Application::Application() 
 	{
-		MT_CLIENT_INFO("Application created successfully.");
+		m_Window = std::unique_ptr<Window>(Window::Create());
 	}
 
 	Application::~Application() 
@@ -15,9 +15,9 @@ namespace Motus {
 
 	void Application::Run()
 	{
-		while (true)
+		while (m_IsRunning)
 		{
-
+			m_Window->OnUpdate();
 		}
 	}
 }
