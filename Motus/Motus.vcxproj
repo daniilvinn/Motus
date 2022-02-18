@@ -163,12 +163,14 @@
     <ClInclude Include="src\Motus\Events\MouseEvent.h" />
     <ClInclude Include="src\Motus\Logger.h" />
     <ClInclude Include="src\Motus\Window.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\motus_pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Motus\Application.cpp" />
     <ClCompile Include="src\Motus\Logger.cpp" />
     <ClCompile Include="src\Motus\Window.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\motus_pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>

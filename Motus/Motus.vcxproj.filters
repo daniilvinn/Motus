@@ -7,6 +7,12 @@
     <Filter Include="Motus\Events">
       <UniqueIdentifier>{4127BAE3-2D8A-4988-D60F-823EC251150B}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\Windows">
+      <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Motus.h" />
@@ -37,6 +43,9 @@
     <ClInclude Include="src\Motus\Window.h">
       <Filter>Motus</Filter>
     </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
+      <Filter>Platform\Windows</Filter>
+    </ClInclude>
     <ClInclude Include="src\motus_pch.h" />
   </ItemGroup>
   <ItemGroup>
@@ -48,6 +57,9 @@
     </ClCompile>
     <ClCompile Include="src\Motus\Window.cpp">
       <Filter>Motus</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
+      <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\motus_pch.cpp" />
   </ItemGroup>

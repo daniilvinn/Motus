@@ -12,6 +12,7 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
 IncludeDir["GLFW"] = "Motus/vendor/GLFW/include"
+
 include "Motus/vendor/GLFW"
 
 project "Motus"

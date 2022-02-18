@@ -1,5 +1,6 @@
 #pragma once
 #include "Core.h"
+#include "Events/Event.h"
 
 namespace Motus {
 
@@ -17,20 +18,26 @@ namespace Motus {
 	};
 
 
-	// Desktop Window interface class implementation.
+	// Desktop Window interface class declaration.
 	class MOTUS_API Window
 	{
 	public:
+		using EventCallbackFunc = std::function<bool(Event&)>;
+
+		virtual ~Window();
+
 		virtual void OnUpdate() = 0;
 
-		virtual void SetVSync() = 0;
-		virtual bool isVSync() const = 0;
+		virtual void SetEventCallbackFunc(const EventCallbackFunc& callback) = 0;
+
+		virtual void SetVSync(bool enabled) = 0;
+		virtual bool IsVSync() const = 0;
 
 		// Get Window Properties 
 		virtual inline uint16_t GetWidth() const = 0;
 		virtual inline uint16_t GetHeight() const = 0;
 		virtual inline std::string GetTitle() const = 0;
 
-		static std::unique_ptr<Window> Create(const WindowProperties& props = WindowProperties());
+		static Window* Create(const WindowProperties& props = WindowProperties());
 	};
 }
