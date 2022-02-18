@@ -10,8 +10,19 @@
 	#error MOTUS_CORE::ERROR: Motus currently supports only Windows platform!
 #endif
 
+#define MOTUS_NAMESPACE_BEGIN namespace Motus {
+#define MOTUS_NAMESPACE_END }
+
 #ifdef MT_DEBUG
-	#define MT_ASSERTS
+	#ifndef MT_ENABLE_ASSERTS
+		#define MT_ENABLE_ASSERTS
+		#define MT_CORE_ASSERT(expression, ...) if(!(expression)){\
+												MT_CORE_ERROR("Assertion failed: {}",__VA_ARGS__); __debugbreak();}\
+												else{}
+		#define MT_ASSERT(expression, ...)		if(!(expression)){\
+												MT_CLIENT_ERROR("Assertion failed: {}",__VA_ARGS__); __debugbreak();}\
+												else{}
+	#endif
 #endif
 
 #define BIT(x) (1 << x)

@@ -10,6 +10,10 @@ workspace "Motus"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+IncludeDir = {}
+IncludeDir["GLFW"] = "Motus/vendor/GLFW/include"
+include "Motus/vendor/GLFW"
+
 project "Motus"
 	location "Motus"
 	kind "SharedLib"
@@ -34,7 +38,14 @@ project "Motus"
 	includedirs 
 	{
 		"%{prj.name}/vendor/spdlog/include",
-		"%{prj.name}/src"
+		"%{prj.name}/src",
+		"%{IncludeDir.GLFW}"
+	}
+
+	links 
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"

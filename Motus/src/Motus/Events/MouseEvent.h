@@ -2,8 +2,6 @@
 #include "Event.h"
 #include <stdint.h>
 
-// TODO: Implement Mouse Event classes
-
 namespace Motus {
 	class MOTUS_API MouseMovedEvent : public Event {
 	public:

@@ -34,6 +34,9 @@
     <ClInclude Include="src\Motus\Logger.h">
       <Filter>Motus</Filter>
     </ClInclude>
+    <ClInclude Include="src\Motus\Window.h">
+      <Filter>Motus</Filter>
+    </ClInclude>
     <ClInclude Include="src\motus_pch.h" />
   </ItemGroup>
   <ItemGroup>
@@ -41,6 +44,9 @@
       <Filter>Motus</Filter>
     </ClCompile>
     <ClCompile Include="src\Motus\Logger.cpp">
+      <Filter>Motus</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Motus\Window.cpp">
       <Filter>Motus</Filter>
     </ClCompile>
     <ClCompile Include="src\motus_pch.cpp" />

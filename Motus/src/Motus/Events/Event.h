@@ -1,11 +1,21 @@
+// Currently Motus Engine uses blocking Event System.
+// It means that if any event happens, it will be
+// immediately dispatched and block whole engine execution.
+// --------------------------------------------------------
+// TODO: Buffer Event system
+// Buffer Event system will dispatch all events which happened
+// during main cycle and dispatch it in OnUpdate() stage,
+// which will not block execution of whole engine.
+
+
 #pragma once
 #include <Motus/Core.h>
 
+#include <spdlog/fmt/fmt.h>
 #include <string>
 #include <functional>
 
 namespace Motus {
-
 
 	// All possible event types
 	enum class EventType {
@@ -83,11 +93,27 @@ namespace Motus {
 		Event& m_Event;
 	};
 
-	inline std::ostream& operator<<(std::ostream& outputStream, const Event& event) {
-		return outputStream << event.GetLogInfo();
-	};
-
-
-
-
+	
 } // namespace Motus
+
+
+// TODO: Custom format type for logging events
+/* ------------------------------------
+template<> struct fmt::formatter<const Motus::Event&> {
+	char presentation = 'f';
+	constexpr auto parse(format_parse_context& ctx) -> decltype(ctx.begin()) {
+		auto it = ctx.begin(), end = ctx.end();
+		if (it != end && (*it == 'f' || *it == 'e'))presentation = *it++;
+		if (it != end && *it != '}') throw format_error("Invalid format");
+		return it;
+	}
+};
+
+template <typename FormatContext>
+auto format(const Motus::Event& e, FormatContext& ctx) -> decltype(ctx.out()) {
+	return presentation == 'f'
+		? format_to(ctx.out(), "{}", e.GetLogInfo().c_str())
+		: format_to(ctx.out(), "{}", e.GetLogInfo().c_str());
+};
+
+*/
