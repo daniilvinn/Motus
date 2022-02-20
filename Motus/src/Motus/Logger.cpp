@@ -15,5 +15,7 @@ namespace Motus {
 
 		s_CoreLogger->set_level(spdlog::level::trace);
 		s_ClientLogger->set_level(spdlog::level::trace);
+
+		MT_CORE_INFO("Logger inialized successfully.");
 	}
 }

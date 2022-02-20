@@ -15,6 +15,10 @@
 #include <string>
 #include <functional>
 
+#ifdef MT_DEBUG
+	#define MT_TRACE_EVENTS
+#endif
+
 namespace Motus {
 
 	// All possible event types
@@ -23,7 +27,7 @@ namespace Motus {
 		WindowClose, WindowMoved, WindowResize, WindowFocus, WindowUnfocus,
 		AppTick, AppUpdate, AppRender,
 		KeyPressed, KeyReleased,
-		MouseButtonPressed, MouseButtonReleased, MouseMoved, MouseScrolled
+		MouseButtonPressed, MouseButtonHold, MouseButtonReleased, MouseMoved, MouseScrolled
 	};
 
 	// All possible event categories, stored as bit value to be able to 

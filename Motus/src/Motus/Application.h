@@ -3,6 +3,8 @@
 #include "Core.h"
 #include "Window.h"
 
+#include "Events/Event.h"
+#include "Events/ApplicationEvent.h"
 
 namespace Motus {
 	class MOTUS_API Application
@@ -11,9 +13,15 @@ namespace Motus {
 		Application();
 		virtual ~Application();
 		void Run();
-	private:
-		std::unique_ptr<Window> m_Window;
+
+		bool OnEvent(Event& event);
+
+	private: // Methods
+		bool OnWindowClosed(WindowCloseEvent& event);
 		bool m_IsRunning = true;
+
+	private: // Data
+		std::unique_ptr<Window> m_Window;
 	};
 
 	Application* CreateApplication();

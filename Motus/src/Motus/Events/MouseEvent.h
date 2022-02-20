@@ -19,7 +19,7 @@ namespace Motus {
 
 		// Setting event type and category
 		EVENT_CLASS_TYPE(MouseMoved)
-		EVENT_CLASS_CATEGORY(MouseEventCategory | ApplicationEventCategory)
+		EVENT_CLASS_CATEGORY(MouseEventCategory | InputEventCategory)
 	private:
 		uint16_t m_PositionX, m_PositionY;
 	};
@@ -27,7 +27,7 @@ namespace Motus {
 	class MOTUS_API MouseScrolledEvent : public Event {
 	public:
 		// Constructor
-		MouseScrolledEvent(uint16_t xoffset, uint16_t yoffset)
+		MouseScrolledEvent(double xoffset, double yoffset)
 			: m_OffsetX(xoffset), m_OffsetY(yoffset) {}
 		
 		// Methods
@@ -35,14 +35,14 @@ namespace Motus {
 			return std::string("MouseScrolledEvent: ") + std::to_string(m_OffsetX) + ", " + std::to_string(m_OffsetY);
 		}
 		
-		inline uint16_t GetX() const { return m_OffsetX; }
-		inline uint16_t GetY() const { return m_OffsetY; }
+		inline double GetX() const { return m_OffsetX; }
+		inline double GetY() const { return m_OffsetY; }
 
 		// Setting event type and category
 		EVENT_CLASS_TYPE(MouseScrolled)
-		EVENT_CLASS_CATEGORY(MouseEventCategory | ApplicationEventCategory)
+		EVENT_CLASS_CATEGORY(MouseEventCategory | InputEventCategory)
 	private:
-		uint16_t m_OffsetX, m_OffsetY;
+		double m_OffsetX, m_OffsetY;
 	};
 
 	class MOTUS_API MouseButtonPressedEvent : public Event {
@@ -60,7 +60,30 @@ namespace Motus {
 
 		// Setting event type and category
 		EVENT_CLASS_TYPE(MouseButtonPressed)
-		EVENT_CLASS_CATEGORY(MouseEventCategory | ApplicationEventCategory)
+		EVENT_CLASS_CATEGORY(MouseEventCategory | InputEventCategory)
+	private:
+		int m_KeyCode;
+	};
+
+	// !!!
+	// TODO: Can be unnecessary event type. If to delete, change WindowsWindow.cpp file, GLFW callbacks section
+	// TODO: Implement Mouse Button Hold Event
+	class MOTUS_API MouseButtonHoldEvent : public Event {
+	public:
+		// Constructor
+		MouseButtonHoldEvent(int keycode)
+		:m_KeyCode(keycode) {}
+
+		// Methods
+		std::string GetLogInfo() const override {
+			return std::string("MouseButtonHoldEvent: ") + std::to_string(m_KeyCode);
+		}
+
+		inline int GetKeyCode() const { return m_KeyCode; };
+
+		// Setting event type and category
+		EVENT_CLASS_TYPE(MouseButtonHold)
+			EVENT_CLASS_CATEGORY(MouseEventCategory | InputEventCategory)
 	private:
 		int m_KeyCode;
 	};
@@ -80,7 +103,7 @@ namespace Motus {
 
 		// Setting event type and category
 		EVENT_CLASS_TYPE(MouseButtonReleased)
-		EVENT_CLASS_CATEGORY(MouseEventCategory | ApplicationEventCategory)
+		EVENT_CLASS_CATEGORY(MouseEventCategory | InputEventCategory)
 	private:
 		int m_KeyCode;
 	};
