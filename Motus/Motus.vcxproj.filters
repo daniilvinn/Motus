@@ -47,6 +47,8 @@
       <Filter>Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\motus_pch.h" />
+    <ClInclude Include="src\Motus\Layer.h" />
+    <ClInclude Include="src\Motus\LayerStack.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Motus\Application.cpp">
@@ -62,5 +64,7 @@
       <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\motus_pch.cpp" />
+    <ClCompile Include="src\Motus\Layer.cpp" />
+    <ClCompile Include="src\Motus\LayerStack.cpp" />
   </ItemGroup>
 </Project>

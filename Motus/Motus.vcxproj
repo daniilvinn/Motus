@@ -153,6 +153,8 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Motus\LayerStack.h" />
+    <ClInclude Include="src\Motus\Layer.h" />
     <ClInclude Include="src\Motus.h" />
     <ClInclude Include="src\Motus\Application.h" />
     <ClInclude Include="src\Motus\Core.h" />
@@ -167,6 +169,8 @@
     <ClInclude Include="src\motus_pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Motus\LayerStack.cpp" />
+    <ClCompile Include="src\Motus\Layer.cpp" />
     <ClCompile Include="src\Motus\Application.cpp" />
     <ClCompile Include="src\Motus\Logger.cpp" />
     <ClCompile Include="src\Motus\Window.cpp" />

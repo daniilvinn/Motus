@@ -23,6 +23,9 @@
 												MT_CLIENT_ERROR("Assertion failed: {}",__VA_ARGS__); __debugbreak();}\
 												else{}
 	#endif
+#else
+	#define MT_CORE_ASSERT(expression, ...)
+	#define MT_ASSERT(expression, ...)
 #endif
 
 #define BIT(x) (1 << x)

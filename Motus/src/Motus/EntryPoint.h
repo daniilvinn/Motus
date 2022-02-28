@@ -7,11 +7,13 @@ extern Motus::Application* Motus::CreateApplication();
 int main() {
 	Motus::Logger::Init();
 
-	Motus::Application* app = Motus::CreateApplication();
-	app->Run();
-	delete app;
-}
+	Motus::Application* Application = Motus::CreateApplication();
+	Application->Run();
+	Application->Shutdown();
 
+	delete Application;
+}
 #else
+
 	#error MOTUS_CORE::ERROR: Motus currently supports only Windows platform!
 #endif

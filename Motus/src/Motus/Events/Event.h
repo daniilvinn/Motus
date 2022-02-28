@@ -67,7 +67,6 @@ namespace Motus {
 			return GetEventCategoryFlags() & category;
 		}
 
-	protected:
 		bool m_IsHandled = false;
 	};
 

@@ -6,15 +6,21 @@
 #include "Events/Event.h"
 #include "Events/ApplicationEvent.h"
 
+#include "LayerStack.h"
+
 namespace Motus {
 	class MOTUS_API Application
 	{
 	public:
 		Application();
 		virtual ~Application();
-		void Run();
+		virtual void Run();
+		virtual void Shutdown();
 
-		bool OnEvent(Event& event);
+		void PushLayer(Layer* layer);
+		void PushOverlay(Layer* overlay);
+
+		void OnEvent(Event& event);
 
 	private: // Methods
 		bool OnWindowClosed(WindowCloseEvent& event);
@@ -22,6 +28,7 @@ namespace Motus {
 
 	private: // Data
 		std::unique_ptr<Window> m_Window;
+		LayerStack m_LayerStack;
 	};
 
 	Application* CreateApplication();

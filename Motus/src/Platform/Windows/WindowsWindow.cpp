@@ -6,6 +6,7 @@
 #include "Motus/Events/MouseEvent.h"
 
 namespace Motus {
+
 	static bool s_GLFWInitialized = false;
 
 	static void GLFWErrorCallback(int error, const char* description) {
@@ -128,6 +129,7 @@ namespace Motus {
 			data.EventCallback(event);
 		});			// Scroll 
 		glfwSetErrorCallback(GLFWErrorCallback);																	// Error cb
+
 	}
 
 	void WindowsWindow::Shutdown() {

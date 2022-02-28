@@ -22,7 +22,7 @@ namespace Motus {
 	class MOTUS_API Window
 	{
 	public:
-		using EventCallbackFunc = std::function<bool(Event&)>;
+		using EventCallbackFunc = std::function<void(Event&)>;
 
 		virtual ~Window();
 
