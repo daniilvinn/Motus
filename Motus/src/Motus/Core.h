@@ -29,3 +29,8 @@
 #endif
 
 #define BIT(x) (1 << x)
+
+// Thanks Yan TheCherno Chernikov for this macro <3
+// https://github.com/TheCherno
+#define MT_BIND_EVENT_FUNCTION(fn) [this](auto&&... args) -> decltype(auto) { return this->fn(std::forward<decltype(args)>(args)...); }
+// --------------------------------------

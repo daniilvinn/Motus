@@ -5,7 +5,7 @@
 namespace Motus {
 	// Abstract Key Event class implementation
 	class MOTUS_API KeyEvent : public Event {
-	protected:
+	public:
 		inline int GetKeyCode() const { return m_KeyCode; };
 		EVENT_CLASS_CATEGORY(InputEventCategory | KeyboardEventCategory)
 		KeyEvent(int keycode) : m_KeyCode(keycode) {}
@@ -36,4 +36,16 @@ namespace Motus {
 		}
 		EVENT_CLASS_TYPE(KeyReleased)
 	};
+
+	class MOTUS_API KeyTypedEvent : public KeyEvent {
+	public:
+		KeyTypedEvent(int keycode) : KeyEvent(keycode){}
+		std::string GetLogInfo() const override {
+			std::stringstream ss;
+			ss << "KeyTypedEvent: Key Code(" << m_KeyCode << ")";
+			return ss.str();
+		}
+		EVENT_CLASS_TYPE(KeyTyped)
+	};
+
 }

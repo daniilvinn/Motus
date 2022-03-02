@@ -26,7 +26,7 @@ namespace Motus {
 		None = 0,
 		WindowClose, WindowMoved, WindowResize, WindowFocus, WindowUnfocus,
 		AppTick, AppUpdate, AppRender,
-		KeyPressed, KeyReleased,
+		KeyPressed, KeyReleased, KeyTyped,
 		MouseButtonPressed, MouseButtonHold, MouseButtonReleased, MouseMoved, MouseScrolled
 	};
 
@@ -81,7 +81,6 @@ namespace Motus {
 		EventDispatcher(Event& event)
 			: m_Event(event) {}
 
-		// F will be deduced by the compiler
 		template<typename T>
 		bool Dispatch(EventFunction<T> function)
 		{

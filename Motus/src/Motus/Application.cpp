@@ -4,10 +4,7 @@
 #include "Logger.h"
 #include <glad/glad.h>
 
-// Thanks Yan TheCherno Chernikov for this macro <3
-// https://github.com/TheCherno
-#define BIND_EVENT_FUNCTION(fn) [this](auto&&... args) -> decltype(auto) { return this->fn(std::forward<decltype(args)>(args)...); }
-// --------------------------------------
+
 
 namespace Motus {
 
@@ -20,7 +17,7 @@ namespace Motus {
 		m_Instance = this;
 
 		m_Window = std::unique_ptr<Window>(Window::Create(WindowProperties()));
-		m_Window->SetEventCallbackFunc(BIND_EVENT_FUNCTION(Application::OnEvent));
+		m_Window->SetEventCallbackFunc(MT_BIND_EVENT_FUNCTION(Application::OnEvent));
 	}
 
 	Application::~Application() 
@@ -34,7 +31,6 @@ namespace Motus {
 		{
 			glClear(GL_COLOR_BUFFER_BIT);
 			glClearColor(1.0f, 0.0f, 1.0f, 1.0f);
-
 
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
@@ -63,10 +59,7 @@ namespace Motus {
 	void Application::OnEvent(Event& event)
 	{
 		EventDispatcher dispatcher(event);
-		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FUNCTION(Application::OnWindowClosed));
-#ifdef MT_TRACE_EVENTS
-		MT_CORE_TRACE(event.GetLogInfo());
-#endif
+		dispatcher.Dispatch<WindowCloseEvent>(MT_BIND_EVENT_FUNCTION(Application::OnWindowClosed));
 
 		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();) {
 			(*--it)->OnEvent(event);

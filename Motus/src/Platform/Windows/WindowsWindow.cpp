@@ -136,6 +136,13 @@ namespace Motus {
 			MouseScrolledEvent event(xoffset, yoffset);
 			data.EventCallback(event);
 		});			// Scroll 
+
+		glfwSetCharCallback(m_Window, [](GLFWwindow* window, unsigned int character) {
+			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+			KeyTypedEvent event(character);
+			data.EventCallback(event);
+		});
+
 		glfwSetErrorCallback(GLFWErrorCallback);																	// Error cb
 
 	}
