@@ -12,8 +12,12 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
 IncludeDir["GLFW"] = "Motus/vendor/GLFW/include"
+IncludeDir["Glad"] = "Motus/vendor/Glad/include"
+IncludeDir["imgui"] = "Motus/vendor/imgui"
 
 include "Motus/vendor/GLFW"
+include "Motus/vendor/Glad"
+include "Motus/vendor/imgui"
 
 project "Motus"
 	location "Motus"
@@ -40,12 +44,16 @@ project "Motus"
 	{
 		"%{prj.name}/vendor/spdlog/include",
 		"%{prj.name}/src",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.imgui}"
 	}
 
 	links 
 	{
+		"Glad",
 		"GLFW",
+		"imgui",
 		"opengl32.lib"
 	}
 
@@ -58,6 +66,7 @@ project "Motus"
 		{
 			"MT_PLATFORM_WINDOWS",
 			"MOTUS_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands 

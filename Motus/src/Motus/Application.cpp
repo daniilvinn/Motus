@@ -2,9 +2,7 @@
 
 #include "Application.h"
 #include "Logger.h"
-#include <GLFW/glfw3.h>
-
-//#define BIND_EVENT_FUNCTION(func) std::bind(&func, this, std::placeholders::_1)
+#include <glad/glad.h>
 
 // Thanks Yan TheCherno Chernikov for this macro <3
 // https://github.com/TheCherno
@@ -12,12 +10,17 @@
 // --------------------------------------
 
 namespace Motus {
+
+	Application* Application::m_Instance = nullptr;
+
 	Application::Application() 
 	{
+
+		MT_CORE_ASSERT(!m_Instance, "Application already exsists!");
+		m_Instance = this;
+
 		m_Window = std::unique_ptr<Window>(Window::Create(WindowProperties()));
-
 		m_Window->SetEventCallbackFunc(BIND_EVENT_FUNCTION(Application::OnEvent));
-
 	}
 
 	Application::~Application() 
@@ -31,6 +34,7 @@ namespace Motus {
 		{
 			glClear(GL_COLOR_BUFFER_BIT);
 			glClearColor(1.0f, 0.0f, 1.0f, 1.0f);
+
 			m_Window->OnUpdate();
 
 			for (Layer* layer : m_LayerStack)
@@ -41,17 +45,19 @@ namespace Motus {
 
 	void Application::Shutdown()
 	{
-		glfwTerminate();
+		
 	}
 
 	void Application::PushLayer(Layer* layer)
 	{
 		m_LayerStack.PushLayer(layer);
+		layer->OnAttach();
 	}
 
 	void Application::PushOverlay(Layer* overlay)
 	{
 		m_LayerStack.PushOverlay(overlay);
+		overlay->OnAttach();
 	}
 
 	void Application::OnEvent(Event& event)

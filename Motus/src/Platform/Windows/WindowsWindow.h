@@ -20,16 +20,17 @@ namespace Motus {
 		inline std::string GetTitle() const override { return m_Data.title; }
 		void SetEventCallbackFunc(const EventCallbackFunc& func) override { m_Data.EventCallback = func; };
 
+		inline GLFWwindow* GetGLFWWindow() { return m_Window; };
 
 		// VSync control methods
 		void SetVSync(bool enabled) override;
 		bool IsVSync() const override;
+		GLFWwindow* m_Window;
 
 	private:
 		virtual void Init(const WindowProperties& props);
 		virtual void Shutdown();
 	private:
-		GLFWwindow* m_Window;
 
 		struct WindowData {
 			std::string title;

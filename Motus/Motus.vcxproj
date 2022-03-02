@@ -79,8 +79,8 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>motus_pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>MT_PLATFORM_WINDOWS;MOTUS_BUILD_DLL;MT_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\spdlog\include;src;vendor\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>MT_PLATFORM_WINDOWS;MOTUS_BUILD_DLL;GLFW_INCLUDE_NONE;MT_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>vendor\spdlog\include;src;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <MinimalRebuild>false</MinimalRebuild>
@@ -103,8 +103,8 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>motus_pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>MT_PLATFORM_WINDOWS;MOTUS_BUILD_DLL;MT_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\spdlog\include;src;vendor\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>MT_PLATFORM_WINDOWS;MOTUS_BUILD_DLL;GLFW_INCLUDE_NONE;MT_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>vendor\spdlog\include;src;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -130,8 +130,8 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>motus_pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>MT_PLATFORM_WINDOWS;MOTUS_BUILD_DLL;MT_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\spdlog\include;src;vendor\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>MT_PLATFORM_WINDOWS;MOTUS_BUILD_DLL;GLFW_INCLUDE_NONE;MT_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>vendor\spdlog\include;src;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -153,8 +153,6 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Motus\LayerStack.h" />
-    <ClInclude Include="src\Motus\Layer.h" />
     <ClInclude Include="src\Motus.h" />
     <ClInclude Include="src\Motus\Application.h" />
     <ClInclude Include="src\Motus\Core.h" />
@@ -163,25 +161,37 @@
     <ClInclude Include="src\Motus\Events\Event.h" />
     <ClInclude Include="src\Motus\Events\KeyEvent.h" />
     <ClInclude Include="src\Motus\Events\MouseEvent.h" />
+    <ClInclude Include="src\Motus\ImGui\ImGUILayer.h" />
+    <ClInclude Include="src\Motus\Layer.h" />
+    <ClInclude Include="src\Motus\LayerStack.h" />
     <ClInclude Include="src\Motus\Logger.h" />
     <ClInclude Include="src\Motus\Window.h" />
+    <ClInclude Include="src\Platform\OpenGL3\imguiopengl.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\motus_pch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Motus\LayerStack.cpp" />
-    <ClCompile Include="src\Motus\Layer.cpp" />
     <ClCompile Include="src\Motus\Application.cpp" />
+    <ClCompile Include="src\Motus\ImGui\ImGUILayer.cpp" />
+    <ClCompile Include="src\Motus\Layer.cpp" />
+    <ClCompile Include="src\Motus\LayerStack.cpp" />
     <ClCompile Include="src\Motus\Logger.cpp" />
     <ClCompile Include="src\Motus\Window.cpp" />
+    <ClCompile Include="src\Platform\OpenGL3\imguiopengl.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\motus_pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="vendor\Glad\Glad.vcxproj">
+      <Project>{BDD6857C-A90D-870D-52FA-6C103E10030F}</Project>
+    </ProjectReference>
     <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">
       <Project>{154B857C-0182-860D-AA6E-6C109684020F}</Project>
+    </ProjectReference>
+    <ProjectReference Include="vendor\imgui\ImGui.vcxproj">
+      <Project>{C0FF640D-2C14-8DBE-F595-301E616989EF}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

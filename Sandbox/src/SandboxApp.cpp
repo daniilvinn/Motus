@@ -10,7 +10,7 @@ public:
 	}
 
 	void OnEvent(Motus::Event& event) override {
-		MT_CLIENT_INFO("{0}", event.GetLogInfo());
+		MT_CLIENT_INFO("ExampleLayer: {0}", event.GetLogInfo());
 	}
 };
 
@@ -18,7 +18,7 @@ class Sandbox : public Motus::Application {
 public:
 	Sandbox()
 	{
-		PushLayer(new ExampleLayer());
+		PushOverlay(new Motus::ImGUILayer());
 	}
 
 	~Sandbox()

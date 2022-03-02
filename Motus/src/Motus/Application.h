@@ -22,6 +22,9 @@ namespace Motus {
 
 		void OnEvent(Event& event);
 
+		inline static Application& Get() { return *m_Instance; };
+		inline Window& GetWindow() { return *m_Window; }
+
 	private: // Methods
 		bool OnWindowClosed(WindowCloseEvent& event);
 		bool m_IsRunning = true;
@@ -29,6 +32,8 @@ namespace Motus {
 	private: // Data
 		std::unique_ptr<Window> m_Window;
 		LayerStack m_LayerStack;
+	private:
+		static Application* m_Instance;
 	};
 
 	Application* CreateApplication();

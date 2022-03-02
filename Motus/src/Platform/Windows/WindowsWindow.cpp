@@ -5,6 +5,8 @@
 #include "Motus/Events/KeyEvent.h"
 #include "Motus/Events/MouseEvent.h"
 
+#include <glad/glad.h>
+
 namespace Motus {
 
 	static bool s_GLFWInitialized = false;
@@ -47,6 +49,12 @@ namespace Motus {
 			nullptr
 		);
 		glfwMakeContextCurrent(m_Window);
+
+		// Initialize GLAD
+		int gladInitValidator = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		MT_CORE_ASSERT(gladInitValidator, "Failed to load GLAD!");
+
+
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
 
@@ -133,8 +141,8 @@ namespace Motus {
 	}
 
 	void WindowsWindow::Shutdown() {
-		// ISSUE: causes GLFW error (GLFW library is not initialized) on window close
 		glfwDestroyWindow(m_Window);
+		glfwTerminate();
 	}
 
 	void WindowsWindow::SetVSync(bool enabled) {

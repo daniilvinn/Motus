@@ -6,6 +6,7 @@
 #include "Motus/Layer.h"
 #include "Motus/Logger.h"
 
+#include "Motus/ImGui/ImGUILayer.h"
 
 // ------Events---------------------------
 #include "Motus/Events/ApplicationEvent.h"

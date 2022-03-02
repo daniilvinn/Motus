@@ -7,6 +7,9 @@
     <Filter Include="Motus\Events">
       <UniqueIdentifier>{4127BAE3-2D8A-4988-D60F-823EC251150B}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Motus\ImGui">
+      <UniqueIdentifier>{E778CC92-532E-4588-DC22-3F5F48D73B8C}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Platform">
       <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
     </Filter>
@@ -37,6 +40,15 @@
     <ClInclude Include="src\Motus\Events\MouseEvent.h">
       <Filter>Motus\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Motus\ImGui\ImGUILayer.h">
+      <Filter>Motus\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Motus\Layer.h">
+      <Filter>Motus</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Motus\LayerStack.h">
+      <Filter>Motus</Filter>
+    </ClInclude>
     <ClInclude Include="src\Motus\Logger.h">
       <Filter>Motus</Filter>
     </ClInclude>
@@ -47,11 +59,19 @@
       <Filter>Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\motus_pch.h" />
-    <ClInclude Include="src\Motus\Layer.h" />
-    <ClInclude Include="src\Motus\LayerStack.h" />
+    <ClInclude Include="src\Platform\OpenGL3\imguiopengl.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Motus\Application.cpp">
+      <Filter>Motus</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Motus\ImGui\ImGUILayer.cpp">
+      <Filter>Motus\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Motus\Layer.cpp">
+      <Filter>Motus</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Motus\LayerStack.cpp">
       <Filter>Motus</Filter>
     </ClCompile>
     <ClCompile Include="src\Motus\Logger.cpp">
@@ -64,7 +84,6 @@
       <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\motus_pch.cpp" />
-    <ClCompile Include="src\Motus\Layer.cpp" />
-    <ClCompile Include="src\Motus\LayerStack.cpp" />
+    <ClCompile Include="src\Platform\OpenGL3\imguiopengl.cpp" />
   </ItemGroup>
 </Project>
