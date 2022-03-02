@@ -145,6 +145,11 @@ namespace Motus {
 		glfwTerminate();
 	}
 
+	void* WindowsWindow::GetNative()
+	{
+		return m_Window;
+	}
+
 	void WindowsWindow::SetVSync(bool enabled) {
 		if (enabled)	glfwSwapInterval(1);
 		else			glfwSwapInterval(0);

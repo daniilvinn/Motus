@@ -89,7 +89,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #endif
 
-#define IMGUI_IMPL_OPENGL_LOADER_CUSTOM
+#define IMGUI_IMPL_OPENGL_LOADER_GLAD
 
 #include "motus_pch.h"
 #include "imgui.h"

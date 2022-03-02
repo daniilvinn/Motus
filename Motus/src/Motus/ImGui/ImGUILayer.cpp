@@ -1,11 +1,13 @@
 #include "motus_pch.h"
 #include "ImGUILayer.h"
 
-#include "Platform/OpenGL3/imguiopengl.h"
 #include <GLFW/glfw3.h>
+#include "Motus/Application.h"
+
+#include "Platform/OpenGL3/imguiopengl.h"
+#include "Platform/OpenGL3/imgui_impl_glfw.h"
 #include <imgui.h>
 
-#include "Motus/Application.h"
 
 namespace Motus {
 
@@ -29,23 +31,20 @@ namespace Motus {
 
 	void ImGUILayer::OnUpdate()
 	{
+		ImGui_ImplOpenGL3_NewFrame();
+		ImGui_ImplGlfw_NewFrame();
+		ImGui::NewFrame();
+
 		ImGuiIO& io = ImGui::GetIO();
 		Application& app = Application::Get();
-		io.DisplaySize = ImVec2(app.GetWindow().GetWidth(), app.GetWindow().GetHeight());
+		io.DisplaySize = ImVec2((float)app.GetWindow().GetWidth(), (float)app.GetWindow().GetHeight());
 
 		float time = (float)glfwGetTime();
 		io.DeltaTime = m_Time > 0.0f ? (time - m_Time) : (1.0f / 60.0f);
 		m_Time = time;
 
-		ImGui_ImplOpenGL3_NewFrame();
-		ImGui::NewFrame();
-
-		static bool show = true;
-		ImGui::Begin("hello world");
-		ImGui::Text("Hello World!");
-		ImGui::End();
-
-		MT_CORE_TRACE("imgui renders...");
+		static bool torender = true;
+		ImGui::ShowDemoWindow(&torender);		
 
 		ImGui::Render();
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
@@ -88,8 +87,9 @@ namespace Motus {
 
 		Application& app = Application::Get();
 
-		
-		ImGui_ImplOpenGL3_Init("#version 430 core");
+		GLFWwindow* window = static_cast<GLFWwindow*>(static_cast<GLFWwindow*>(app.GetWindow().GetNative()));
+		ImGui_ImplGlfw_InitForOpenGL(window, false);
+		ImGui_ImplOpenGL3_Init("#version 460 core");
 	}
 
 	void ImGUILayer::OnDetach()

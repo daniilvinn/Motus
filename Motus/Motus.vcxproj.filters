@@ -60,6 +60,7 @@
     </ClInclude>
     <ClInclude Include="src\motus_pch.h" />
     <ClInclude Include="src\Platform\OpenGL3\imguiopengl.h" />
+    <ClInclude Include="src\Platform\OpenGL3\imgui_impl_glfw.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Motus\Application.cpp">
@@ -85,5 +86,6 @@
     </ClCompile>
     <ClCompile Include="src\motus_pch.cpp" />
     <ClCompile Include="src\Platform\OpenGL3\imguiopengl.cpp" />
+    <ClCompile Include="src\Platform\OpenGL3\imgui_impl_glfw.cpp" />
   </ItemGroup>
 </Project>

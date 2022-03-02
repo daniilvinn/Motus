@@ -38,6 +38,8 @@ namespace Motus {
 		virtual inline uint16_t GetHeight() const = 0;
 		virtual inline std::string GetTitle() const = 0;
 
+		virtual void* GetNative() = 0;
+
 		static Window* Create(const WindowProperties& props = WindowProperties());
 	};
 }

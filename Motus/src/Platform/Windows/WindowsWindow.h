@@ -18,6 +18,7 @@ namespace Motus {
 		inline uint16_t GetWidth()  const override { return m_Data.width; }
 		inline uint16_t GetHeight() const override { return m_Data.height; }
 		inline std::string GetTitle() const override { return m_Data.title; }
+		void* GetNative() override;
 		void SetEventCallbackFunc(const EventCallbackFunc& func) override { m_Data.EventCallback = func; };
 
 		inline GLFWwindow* GetGLFWWindow() { return m_Window; };

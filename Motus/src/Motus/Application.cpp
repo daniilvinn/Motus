@@ -35,11 +35,11 @@ namespace Motus {
 			glClear(GL_COLOR_BUFFER_BIT);
 			glClearColor(1.0f, 0.0f, 1.0f, 1.0f);
 
-			m_Window->OnUpdate();
 
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
 
+			m_Window->OnUpdate();
 		}
 	}
 

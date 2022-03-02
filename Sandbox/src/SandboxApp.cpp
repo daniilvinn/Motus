@@ -6,7 +6,7 @@ public:
 
 	void OnUpdate() override 
 	{
-		MT_CLIENT_INFO("Example layer is on update.");
+		
 	}
 
 	void OnEvent(Motus::Event& event) override {
@@ -18,6 +18,7 @@ class Sandbox : public Motus::Application {
 public:
 	Sandbox()
 	{
+		PushLayer(new ExampleLayer());
 		PushOverlay(new Motus::ImGUILayer());
 	}
 
