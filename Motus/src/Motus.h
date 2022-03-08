@@ -2,9 +2,9 @@
 
 // Include this file into your application to import Motus functionality
 
-#include "Motus/Application.h"
-#include "Motus/Layer.h"
-#include "Motus/Logger.h"
+#include "Motus/Core/Application.h"
+#include "Motus/Core/Layer.h"
+#include "Motus/Core/Logger.h"
 
 #include "Motus/ImGui/ImGUILayer.h"
 
@@ -16,5 +16,5 @@
 
 
 // -----Entry Point----------
-#include "Motus/EntryPoint.h"
+#include "Motus/Core/EntryPoint.h"
 // --------------------------

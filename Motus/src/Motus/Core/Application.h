@@ -1,10 +1,10 @@
 #pragma once
 
-#include "Core.h"
+#include "Base.h"
 #include "Window.h"
 
-#include "Events/Event.h"
-#include "Events/ApplicationEvent.h"
+#include "Motus/Events/Event.h"
+#include "Motus/Events/ApplicationEvent.h"
 
 #include "LayerStack.h"
 

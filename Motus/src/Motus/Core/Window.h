@@ -1,6 +1,6 @@
 #pragma once
-#include "Core.h"
-#include "Events/Event.h"
+#include "Base.h"
+#include "Motus/Events/Event.h"
 
 namespace Motus {
 

@@ -12,7 +12,6 @@ namespace Motus {
 
 	Application::Application() 
 	{
-
 		MT_CORE_ASSERT(!m_Instance, "Application already exsists!");
 		m_Instance = this;
 
@@ -30,7 +29,7 @@ namespace Motus {
 		while (m_IsRunning)
 		{
 			glClear(GL_COLOR_BUFFER_BIT);
-			glClearColor(1.0f, 0.0f, 1.0f, 1.0f);
+			//glClearColor(1.0f, 0.0f, 1.0f, 1.0f);
 
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
@@ -41,7 +40,7 @@ namespace Motus {
 
 	void Application::Shutdown()
 	{
-		
+
 	}
 
 	void Application::PushLayer(Layer* layer)

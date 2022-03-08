@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Motus/Core.h"
-#include "Motus/Layer.h"
+#include "Motus/Core/Base.h"
+#include "Motus/Core/Layer.h"
 
 #include <vector>
 

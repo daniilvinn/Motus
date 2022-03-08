@@ -14,6 +14,5 @@ int main() {
 	delete Application;
 }
 #else
-
 	#error MOTUS_CORE::ERROR: Motus currently supports only Windows platform!
 #endif

@@ -3,7 +3,7 @@
 
 #include <GLFW/glfw3.h>
 #include <glad/glad.h>
-#include "Motus/Application.h"
+#include "Motus/Core/Application.h"
 
 #include "Platform/OpenGL3/imguiopengl.h"
 #include "Platform/OpenGL3/imgui_impl_glfw.h"
@@ -114,9 +114,21 @@ namespace Motus {
 		float time = (float)glfwGetTime();
 		io.DeltaTime = m_Time > 0.0f ? (time - m_Time) : (1.0f / 60.0f);
 		m_Time = time;
-
+		
 		static bool torender = true;
-		ImGui::ShowDemoWindow(&torender);		
+		if (torender) {
+			ImGui::ShowDemoWindow(&torender);
+		}
+
+		ImGui::Begin("Window Manager");
+		if (ImGui::Button("Exit Engine")) {
+			WindowCloseEvent event;
+			app.OnEvent(event);
+		}
+		if (ImGui::Button("Close Demo Window")) {
+			torender = false;
+		}
+		ImGui::End();
 
 		ImGui::Render();
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());

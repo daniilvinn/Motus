@@ -154,32 +154,32 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\Motus.h" />
-    <ClInclude Include="src\Motus\Application.h" />
-    <ClInclude Include="src\Motus\Core.h" />
-    <ClInclude Include="src\Motus\EntryPoint.h" />
+    <ClInclude Include="src\Motus\Core\Application.h" />
+    <ClInclude Include="src\Motus\Core\Base.h" />
+    <ClInclude Include="src\Motus\Core\EntryPoint.h" />
+    <ClInclude Include="src\Motus\Core\Layer.h" />
+    <ClInclude Include="src\Motus\Core\LayerStack.h" />
+    <ClInclude Include="src\Motus\Core\Logger.h" />
+    <ClInclude Include="src\Motus\Core\Window.h" />
     <ClInclude Include="src\Motus\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Motus\Events\Event.h" />
     <ClInclude Include="src\Motus\Events\KeyEvent.h" />
     <ClInclude Include="src\Motus\Events\MouseEvent.h" />
     <ClInclude Include="src\Motus\ImGui\ImGUILayer.h" />
-    <ClInclude Include="src\Motus\Layer.h" />
-    <ClInclude Include="src\Motus\LayerStack.h" />
-    <ClInclude Include="src\Motus\Logger.h" />
-    <ClInclude Include="src\Motus\Window.h" />
-    <ClInclude Include="src\Platform\OpenGL3\imguiopengl.h" />
     <ClInclude Include="src\Platform\OpenGL3\imgui_impl_glfw.h" />
+    <ClInclude Include="src\Platform\OpenGL3\imguiopengl.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\motus_pch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Motus\Application.cpp" />
+    <ClCompile Include="src\Motus\Core\Application.cpp" />
+    <ClCompile Include="src\Motus\Core\Layer.cpp" />
+    <ClCompile Include="src\Motus\Core\LayerStack.cpp" />
+    <ClCompile Include="src\Motus\Core\Logger.cpp" />
+    <ClCompile Include="src\Motus\Core\Window.cpp" />
     <ClCompile Include="src\Motus\ImGui\ImGUILayer.cpp" />
-    <ClCompile Include="src\Motus\Layer.cpp" />
-    <ClCompile Include="src\Motus\LayerStack.cpp" />
-    <ClCompile Include="src\Motus\Logger.cpp" />
-    <ClCompile Include="src\Motus\Window.cpp" />
-    <ClCompile Include="src\Platform\OpenGL3\imguiopengl.cpp" />
     <ClCompile Include="src\Platform\OpenGL3\imgui_impl_glfw.cpp" />
+    <ClCompile Include="src\Platform\OpenGL3\imguiopengl.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\motus_pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>

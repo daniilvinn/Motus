@@ -10,7 +10,7 @@
 #include <sstream>
 #include <vector>
 
-#include "Motus/Logger.h"
+#include "Motus/Core/Logger.h"
 
 #ifdef MT_PLATFORM_WINDOWS
 	#include <Windows.h>

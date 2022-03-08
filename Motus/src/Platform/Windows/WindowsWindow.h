@@ -1,5 +1,5 @@
 #pragma once
-#include "Motus/Window.h"
+#include "Motus/Core/Window.h"
 #include <GLFW/glfw3.h>
 
 namespace Motus {

@@ -9,7 +9,7 @@
 
 
 #pragma once
-#include <Motus/Core.h>
+#include <Motus/Core/Base.h>
 
 #include <spdlog/fmt/fmt.h>
 #include <string>
