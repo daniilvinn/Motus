@@ -7,3 +7,6 @@
 [submodule "Motus/vendor/imgui"]
 	path = Motus/vendor/imgui
 	url = https://github.com/daniilvinn/imgui.git
+[submodule "Motus/vendor/glm"]
+	path = Motus/vendor/glm
+	url = https://github.com/daniilvinn/glm.git

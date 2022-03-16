@@ -7,9 +7,13 @@
 
 #include <glad/glad.h>
 
+#include <Motus/Core/Input.h>
+#include <Platform/Windows/WinInput.h>
+
 namespace Motus {
 
 	static bool s_GLFWInitialized = false;
+	Input* Input::s_Instance = new WinInput();
 
 	static void GLFWErrorCallback(int error, const char* description) {
 		MT_CORE_ERROR("GLFW Error({0}): {1}", error, description);

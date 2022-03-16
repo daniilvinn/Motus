@@ -2,8 +2,9 @@
 
 #include "Application.h"
 #include "Logger.h"
-#include <glad/glad.h>
+#include "Motus/ImGui/ImGUILayer.h"
 
+#include <glad/glad.h>
 
 
 namespace Motus {
@@ -17,6 +18,9 @@ namespace Motus {
 
 		m_Window = std::unique_ptr<Window>(Window::Create(WindowProperties()));
 		m_Window->SetEventCallbackFunc(MT_BIND_EVENT_FUNCTION(Application::OnEvent));
+
+		m_ImGuiLayer = new ImGuiLayer();
+		PushOverlay(m_ImGuiLayer);
 	}
 
 	Application::~Application() 
@@ -33,6 +37,11 @@ namespace Motus {
 
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
+
+			m_ImGuiLayer->ImGuiBegin();
+			for (Layer* layer : m_LayerStack)
+				layer->OnImGuiRender();
+			m_ImGuiLayer->ImGuiEnd();
 
 			m_Window->OnUpdate();
 		}

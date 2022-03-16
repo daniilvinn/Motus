@@ -16,9 +16,6 @@
     <Filter Include="Platform">
       <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Platform\OpenGL3">
-      <UniqueIdentifier>{1121BCC2-FD19-DB14-264C-C09912A4BA20}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Platform\Windows">
       <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
     </Filter>
@@ -34,6 +31,12 @@
     <ClInclude Include="src\Motus\Core\EntryPoint.h">
       <Filter>Motus\Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\Motus\Core\Input.h">
+      <Filter>Motus\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Motus\Core\KeyCodes.h">
+      <Filter>Motus\Core</Filter>
+    </ClInclude>
     <ClInclude Include="src\Motus\Core\Layer.h">
       <Filter>Motus\Core</Filter>
     </ClInclude>
@@ -41,6 +44,9 @@
       <Filter>Motus\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Motus\Core\Logger.h">
+      <Filter>Motus\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Motus\Core\MouseCodes.h">
       <Filter>Motus\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Motus\Core\Window.h">
@@ -61,11 +67,8 @@
     <ClInclude Include="src\Motus\ImGui\ImGUILayer.h">
       <Filter>Motus\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="src\Platform\OpenGL3\imgui_impl_glfw.h">
-      <Filter>Platform\OpenGL3</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Platform\OpenGL3\imguiopengl.h">
-      <Filter>Platform\OpenGL3</Filter>
+    <ClInclude Include="src\Platform\Windows\WinInput.h">
+      <Filter>Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
       <Filter>Platform\Windows</Filter>
@@ -74,6 +77,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Motus\Core\Application.cpp">
+      <Filter>Motus\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Motus\Core\Input.cpp">
       <Filter>Motus\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Motus\Core\Layer.cpp">
@@ -91,11 +97,11 @@
     <ClCompile Include="src\Motus\ImGui\ImGUILayer.cpp">
       <Filter>Motus\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="src\Platform\OpenGL3\imgui_impl_glfw.cpp">
-      <Filter>Platform\OpenGL3</Filter>
+    <ClCompile Include="src\Motus\ImGui\imguicompile.cpp">
+      <Filter>Motus\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="src\Platform\OpenGL3\imguiopengl.cpp">
-      <Filter>Platform\OpenGL3</Filter>
+    <ClCompile Include="src\Platform\Windows\WinInput.cpp">
+      <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
       <Filter>Platform\Windows</Filter>

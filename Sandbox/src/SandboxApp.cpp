@@ -1,4 +1,5 @@
 #include <Motus.h>
+#include <imgui/imgui.h>
 
 class ExampleLayer : public Motus::Layer {
 public:
@@ -6,6 +7,10 @@ public:
 
 	void OnUpdate() override 
 	{
+		
+	}
+
+	void OnImGuiRender() override {
 		
 	}
 
@@ -19,7 +24,6 @@ public:
 	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
-		PushOverlay(new Motus::ImGuiLayer());
 	}
 
 	~Sandbox()

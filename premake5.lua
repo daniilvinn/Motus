@@ -37,13 +37,13 @@ project "Motus"
 	files 
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
 	}
 
 	includedirs 
 	{
-		"%{prj.name}/vendor/spdlog/include",
 		"%{prj.name}/src",
+		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.imgui}"
@@ -108,7 +108,8 @@ project "Sandbox"
 	includedirs 
 	{
 		"Motus/vendor/spdlog/include",
-		"Motus/src"
+		"Motus/src",
+		"Motus/vendor"
 	}
 
 	links 

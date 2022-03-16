@@ -8,6 +8,8 @@
 
 #include "LayerStack.h"
 
+#include <Motus/ImGui/ImGUILayer.h>
+
 namespace Motus {
 	class MOTUS_API Application
 	{
@@ -31,6 +33,7 @@ namespace Motus {
 
 	private: // Data
 		std::unique_ptr<Window> m_Window;
+		ImGuiLayer* m_ImGuiLayer;
 		LayerStack m_LayerStack;
 	private:
 		static Application* m_Instance;
