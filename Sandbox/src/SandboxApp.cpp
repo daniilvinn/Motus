@@ -10,8 +10,11 @@ public:
 		
 	}
 
-	void OnImGuiRender() override {
-		
+	void OnImGuiRender() override 
+	{
+		ImGui::Begin("Hello World!");
+		ImGui::Text("Blabla");
+		ImGui::End();
 	}
 
 	void OnEvent(Motus::Event& event) override {

@@ -1,11 +1,17 @@
 #pragma once
 
 #ifdef MT_PLATFORM_WINDOWS
-	#ifdef MOTUS_BUILD_DLL
-		#define MOTUS_API __declspec(dllexport)
-	#else
-		#define MOTUS_API __declspec(dllimport)
-	#endif 
+	#ifdef MT_DYNAMIC
+		#ifdef MOTUS_BUILD_DLL
+			#define MOTUS_API __declspec(dllexport)
+		#else
+			#define MOTUS_API __declspec(dllimport)
+		#endif
+	#elif defined(MT_STATIC)
+		#define MOTUS_API 
+	#elif defined(MT_STATIC) && defined (MT_DYNAMIC)
+		#error MOTUS_LINK::ERROR: Motus can't be linked both dynamically and statically!
+	#endif
 #else
 	#error MOTUS_CORE::ERROR: Motus currently supports only Windows platform!
 #endif
@@ -14,14 +20,16 @@
 #define MOTUS_NAMESPACE_END }
 
 #ifdef MT_DEBUG
-	#ifndef MT_ENABLE_ASSERTS
-		#define MT_ENABLE_ASSERTS
-		#define MT_CORE_ASSERT(expression, ...) if(!(expression)){\
-												MT_CORE_ERROR("Assertion failed: {}",__VA_ARGS__); __debugbreak();}\
-												else{}
-		#define MT_ASSERT(expression, ...)		if(!(expression)){\
-												MT_CLIENT_ERROR("Assertion failed: {}",__VA_ARGS__); __debugbreak();}\
-												else{}
+	#ifndef MT_ASSERTS_ENABLED
+		#define MT_ASSERTS_ENABLED
+		#ifdef MT_PLATFORM_WINDOWS
+			#define MT_CORE_ASSERT(expression, ...) if(!(expression)){\
+													MT_CORE_ERROR("Assertion failed: {}",__VA_ARGS__); __debugbreak();}\
+													else{}
+			#define MT_ASSERT(expression, ...)		if(!(expression)){\
+													MT_CLIENT_ERROR("Assertion failed: {}",__VA_ARGS__); __debugbreak();}\
+													else{}
+		#endif
 	#endif
 #else
 	#define MT_CORE_ASSERT(expression, ...)

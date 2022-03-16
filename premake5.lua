@@ -21,8 +21,9 @@ include "Motus/vendor/imgui"
 
 project "Motus"
 	location "Motus"
-	kind "SharedLib"
+	kind "StaticLib"
 	language "C++"
+	cppdialect "C++17"
 
 	targetdir("bin/" .. outputdir .. "/%{prj.name}")
 	objdir("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -57,21 +58,19 @@ project "Motus"
 		"opengl32.lib"
 	}
 
+	defines 
+	{
+		"MT_STATIC"
+	}
+
 	filter "system:windows"
-		cppdialect "C++17"
-		staticruntime "off"
+		staticruntime "on"
 		systemversion "latest"
 
 		defines
 		{
 			"MT_PLATFORM_WINDOWS",
-			"MOTUS_BUILD_DLL",
 			"GLFW_INCLUDE_NONE"
-		}
-
-		postbuildcommands 
-		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
 		}
 
 	filter "configurations:Debug"
@@ -117,14 +116,19 @@ project "Sandbox"
 		"Motus"
 	}
 
+	defines 
+	{
+		"MT_STATIC"
+	}
+
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "off"
+		staticruntime "on"
 		systemversion "latest"
 
 		defines
 		{
-			"MT_PLATFORM_WINDOWS",
+			"MT_PLATFORM_WINDOWS"
 		}
 
 	filter "configurations:Debug"

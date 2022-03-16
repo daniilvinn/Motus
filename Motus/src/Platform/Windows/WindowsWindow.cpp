@@ -109,7 +109,7 @@ namespace Motus {
 		glfwSetCursorPosCallback(m_Window, [](GLFWwindow* window, double xpos, double ypos) {
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 
-			MouseMovedEvent event(xpos, ypos);
+			MouseMovedEvent event((uint16_t)xpos, (uint16_t)ypos);
 			data.EventCallback(event);
 			});				// Mouse Moved
 		glfwSetMouseButtonCallback(m_Window, [](GLFWwindow* window, int button, int action, int mods) {

@@ -10,7 +10,7 @@ int main() {
 	Motus::Application* Application = Motus::CreateApplication();
 	Application->Run();
 	Application->Shutdown();
-
+	
 	delete Application;
 }
 #else
