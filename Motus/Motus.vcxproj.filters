@@ -74,6 +74,8 @@
       <Filter>Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\motus_pch.h" />
+    <ClInclude Include="src\Motus\Renderer\Context.h" />
+    <ClInclude Include="src\Platform\OpenGL3\OpenGLContext.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Motus\Core\Application.cpp">
@@ -107,5 +109,7 @@
       <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\motus_pch.cpp" />
+    <ClCompile Include="src\Motus\Renderer\Context.cpp" />
+    <ClCompile Include="src\Platform\OpenGL3\OpenGLContext.cpp" />
   </ItemGroup>
 </Project>

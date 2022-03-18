@@ -1,5 +1,6 @@
 #pragma once
 
+// TODO: to be improved
 #ifdef MT_PLATFORM_WINDOWS
 	#ifdef MT_DYNAMIC
 		#ifdef MOTUS_BUILD_DLL
@@ -11,6 +12,8 @@
 		#define MOTUS_API 
 	#elif defined(MT_STATIC) && defined (MT_DYNAMIC)
 		#error MOTUS_LINK::ERROR: Motus can't be linked both dynamically and statically!
+	#else
+		#error MOTUS::LINK::ERROR: MT_STATIC or MT_DYNAMIC macro must be defined!
 	#endif
 #else
 	#error MOTUS_CORE::ERROR: Motus currently supports only Windows platform!

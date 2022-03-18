@@ -1,6 +1,8 @@
 #pragma once
+
 #include "Base.h"
 #include "Motus/Events/Event.h"
+#include "Motus/Renderer/Context.h"
 
 namespace Motus {
 
@@ -37,7 +39,7 @@ namespace Motus {
 		virtual inline uint16_t GetWidth() const = 0;
 		virtual inline uint16_t GetHeight() const = 0;
 		virtual inline std::string GetTitle() const = 0;
-
+		virtual inline GraphicsAPIContext* GetContext() = 0;
 		virtual void* GetNative() = 0;
 
 		static Window* Create(const WindowProperties& props = WindowProperties());

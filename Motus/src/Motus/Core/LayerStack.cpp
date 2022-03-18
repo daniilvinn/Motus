@@ -20,7 +20,7 @@ namespace Motus {
 		auto i = std::find(m_LayerStack.begin(), m_LayerStack.end(), layer);
 		if (i != m_LayerStack.end()) {
 			// Maybe next line should be deleted :/
-			MT_CORE_ASSERT(false, "Deleted not existing layer");
+			MT_CORE_ASSERT(false, "Deleting not existing layer");
 			m_LayerStack.erase(i);
 			m_InsertIndex--;
 		}
@@ -36,7 +36,7 @@ namespace Motus {
 		auto i = std::find(m_LayerStack.begin(), m_LayerStack.end(), overlay);
 		if (i != m_LayerStack.end()) {
 			// Maybe next line should be deleted :/
-			MT_CORE_ASSERT(false, "Deleted not existing overlay");
+			MT_CORE_ASSERT(false, "Deleting not existing overlay");
 			m_LayerStack.erase(i);
 		}
 	}

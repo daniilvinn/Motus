@@ -19,14 +19,12 @@ namespace Motus {
 		inline uint16_t GetHeight() const override { return m_Data.height; }
 		inline std::string GetTitle() const override { return m_Data.title; }
 		void* GetNative() override;
+		inline GraphicsAPIContext* GetContext() override { return m_Context; };
 		void SetEventCallbackFunc(const EventCallbackFunc& func) override { m_Data.EventCallback = func; };
-
-		inline GLFWwindow* GetGLFWWindow() { return m_Window; };
 
 		// VSync control methods
 		void SetVSync(bool enabled) override;
 		bool IsVSync() const override;
-		GLFWwindow* m_Window;
 
 	private:
 		virtual void Init(const WindowProperties& props);
@@ -42,8 +40,9 @@ namespace Motus {
 			EventCallbackFunc EventCallback;
 		};
 
+		GraphicsAPIContext* m_Context;
 		WindowData m_Data;
-
+		GLFWwindow* m_Window;
 	};
 
 }

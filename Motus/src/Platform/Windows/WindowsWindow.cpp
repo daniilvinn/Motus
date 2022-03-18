@@ -5,7 +5,7 @@
 #include "Motus/Events/KeyEvent.h"
 #include "Motus/Events/MouseEvent.h"
 
-#include <glad/glad.h>
+#include <Platform/OpenGL3/OpenGLContext.h>
 
 #include <Motus/Core/Input.h>
 #include <Platform/Windows/WinInput.h>
@@ -54,10 +54,9 @@ namespace Motus {
 		);
 		glfwMakeContextCurrent(m_Window);
 
-		// Initialize GLAD
-		int gladInitValidator = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-		MT_CORE_ASSERT(gladInitValidator, "Failed to load GLAD!");
-
+		// Setup OpenGL context
+		m_Context = new OpenGLContext(m_Window);
+		m_Context->Init();
 
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
@@ -70,8 +69,6 @@ namespace Motus {
 			data.height = height;
 
 			WindowResizeEvent event(width, height);
-
-			glViewport(0, 0, width, height);
 
 			data.EventCallback(event);
 			});				// Window Resize
@@ -140,13 +137,11 @@ namespace Motus {
 			MouseScrolledEvent event(xoffset, yoffset);
 			data.EventCallback(event);
 		});			// Scroll 
-
 		glfwSetCharCallback(m_Window, [](GLFWwindow* window, unsigned int character) {
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 			KeyTypedEvent event(character);
 			data.EventCallback(event);
 		});
-
 		glfwSetErrorCallback(GLFWErrorCallback);																	// Error cb
 
 	}
@@ -173,7 +168,7 @@ namespace Motus {
 
 	void WindowsWindow::OnUpdate() {
 		glfwPollEvents();
-		glfwSwapBuffers(m_Window);
+		m_Context->SwapBuffers();
 	}
 
 }

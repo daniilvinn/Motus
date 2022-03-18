@@ -60,7 +60,8 @@ project "Motus"
 
 	defines 
 	{
-		"MT_STATIC"
+		"MT_STATIC",
+		"_CRT_SECURE_NO_WARNINGS"
 	}
 
 	filter "system:windows"
