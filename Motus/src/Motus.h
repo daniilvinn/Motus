@@ -3,8 +3,9 @@
 // Include this file into your application to import Motus functionality
 
 #include "Motus/Core/Application.h"
-#include "Motus/Core/Layer.h"
 #include "Motus/Core/Logger.h"
+#include "Motus/Core/Layer.h"
+#include "Motus/Core/KeyCodes.h"
 
 #include "Motus/ImGui/ImGUILayer.h"
 

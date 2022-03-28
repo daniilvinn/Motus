@@ -29,9 +29,10 @@ namespace Motus {
 
 	private: // Methods
 		bool OnWindowClosed(WindowCloseEvent& event);
-		bool m_IsRunning = true;
+		bool OnWindowResize(WindowResizeEvent& event);
 
 	private: // Data
+		bool m_IsRunning = true;
 		std::unique_ptr<Window> m_Window;
 		ImGuiLayer* m_ImGuiLayer;
 		LayerStack m_LayerStack;

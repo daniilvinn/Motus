@@ -3,6 +3,7 @@
 #include "Application.h"
 #include "Logger.h"
 #include "Motus/ImGui/ImGUILayer.h"
+#include "Motus/Renderer/RenderLayer.h"
 
 #include <glad/glad.h>
 
@@ -21,6 +22,7 @@ namespace Motus {
 
 		m_ImGuiLayer = new ImGuiLayer();
 		PushOverlay(m_ImGuiLayer);
+		PushLayer(new RenderLayer());
 	}
 
 	Application::~Application() 
@@ -33,7 +35,7 @@ namespace Motus {
 		while (m_IsRunning)
 		{
 			glClear(GL_COLOR_BUFFER_BIT);
-			//glClearColor(1.0f, 0.0f, 1.0f, 1.0f);
+			glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
 
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
@@ -68,6 +70,7 @@ namespace Motus {
 	{
 		EventDispatcher dispatcher(event);
 		dispatcher.Dispatch<WindowCloseEvent>(MT_BIND_EVENT_FUNCTION(Application::OnWindowClosed));
+		dispatcher.Dispatch<WindowResizeEvent>(MT_BIND_EVENT_FUNCTION(Application::OnWindowResize));
 
 		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();) {
 			(*--it)->OnEvent(event);
@@ -76,9 +79,17 @@ namespace Motus {
 		}
 
 	}
+
 	bool Application::OnWindowClosed(WindowCloseEvent& event)
 	{
 		m_IsRunning = false;
 		return true;
 	}
+
+	bool Application::OnWindowResize(WindowResizeEvent& event)
+	{
+		glViewport(0, 0, event.GetWindowWidth(), event.GetWindowHeight());
+		return true;
+	}
+
 }

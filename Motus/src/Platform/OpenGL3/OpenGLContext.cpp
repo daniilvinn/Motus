@@ -13,6 +13,10 @@ namespace Motus {
 	{
 		int gladInitValidator = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 		MT_CORE_ASSERT(gladInitValidator, "Failed to load GLAD!");
+
+		MT_CORE_INFO("Renderer Device: {0}", glGetString(GL_VENDOR));
+		MT_CORE_INFO("Active GPU: {0}", glGetString(GL_RENDERER));
+		MT_CORE_INFO("API version: {0}", glGetString(GL_VERSION));
 	}
 
 	void OpenGLContext::SwapBuffers()

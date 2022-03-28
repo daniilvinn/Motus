@@ -14,6 +14,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Motus/vendor/GLFW/include"
 IncludeDir["Glad"] = "Motus/vendor/Glad/include"
 IncludeDir["imgui"] = "Motus/vendor/imgui"
+IncludeDir["glm"] = "Motus/vendor/glm"
 
 include "Motus/vendor/GLFW"
 include "Motus/vendor/Glad"
@@ -47,7 +48,8 @@ project "Motus"
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
-		"%{IncludeDir.imgui}"
+		"%{IncludeDir.imgui}",
+		"%{IncludeDir.glm}"
 	}
 
 	links 

@@ -13,8 +13,14 @@
     <Filter Include="Motus\ImGui">
       <UniqueIdentifier>{E778CC92-532E-4588-DC22-3F5F48D73B8C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Motus\Renderer">
+      <UniqueIdentifier>{430ADCB1-2FD8-CFB7-186C-40DE04D9AB1C}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Platform">
       <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\OpenGL3">
+      <UniqueIdentifier>{1121BCC2-FD19-DB14-264C-C09912A4BA20}</UniqueIdentifier>
     </Filter>
     <Filter Include="Platform\Windows">
       <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
@@ -67,6 +73,21 @@
     <ClInclude Include="src\Motus\ImGui\ImGUILayer.h">
       <Filter>Motus\ImGui</Filter>
     </ClInclude>
+    <ClInclude Include="src\Motus\Renderer\Context.h">
+      <Filter>Motus\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Motus\Renderer\RenderLayer.h">
+      <Filter>Motus\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Motus\Renderer\Shader.h">
+      <Filter>Motus\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL3\OpenGLContext.h">
+      <Filter>Platform\OpenGL3</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL3\OpenGLShader.h">
+      <Filter>Platform\OpenGL3</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\Windows\WinInput.h">
       <Filter>Platform\Windows</Filter>
     </ClInclude>
@@ -74,8 +95,6 @@
       <Filter>Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\motus_pch.h" />
-    <ClInclude Include="src\Motus\Renderer\Context.h" />
-    <ClInclude Include="src\Platform\OpenGL3\OpenGLContext.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Motus\Core\Application.cpp">
@@ -102,6 +121,18 @@
     <ClCompile Include="src\Motus\ImGui\imguicompile.cpp">
       <Filter>Motus\ImGui</Filter>
     </ClCompile>
+    <ClCompile Include="src\Motus\Renderer\Context.cpp">
+      <Filter>Motus\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Motus\Renderer\RenderLayer.cpp">
+      <Filter>Motus\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL3\OpenGLContext.cpp">
+      <Filter>Platform\OpenGL3</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL3\OpenGLShader.cpp">
+      <Filter>Platform\OpenGL3</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\Windows\WinInput.cpp">
       <Filter>Platform\Windows</Filter>
     </ClCompile>
@@ -109,7 +140,5 @@
       <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\motus_pch.cpp" />
-    <ClCompile Include="src\Motus\Renderer\Context.cpp" />
-    <ClCompile Include="src\Platform\OpenGL3\OpenGLContext.cpp" />
   </ItemGroup>
 </Project>

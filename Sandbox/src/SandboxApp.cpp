@@ -7,14 +7,12 @@ public:
 
 	void OnUpdate() override 
 	{
-		
+		// Render
 	}
 
 	void OnImGuiRender() override 
 	{
-		ImGui::Begin("Hello World!");
-		ImGui::Text("Blabla");
-		ImGui::End();
+		// ImGui Render
 	}
 
 	void OnEvent(Motus::Event& event) override {
@@ -37,6 +35,5 @@ public:
 
 Motus::Application* Motus::CreateApplication()
 {
-	MT_CLIENT_INFO("Creating application...");
 	return new Sandbox();
 }

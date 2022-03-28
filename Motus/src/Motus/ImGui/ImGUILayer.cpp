@@ -44,18 +44,10 @@ namespace Motus {
 	{
 		Application& app = Application::Get();
 
-		static bool torender = true;
-		if (torender) {
-			ImGui::ShowDemoWindow(&torender);
-		}
-
 		ImGui::Begin("Window Manager");
 		if (ImGui::Button("Exit Engine")) {
 			WindowCloseEvent event;
 			app.OnEvent(event);
-		}
-		if (ImGui::Button("Close Demo Window")) {
-			torender = false;
 		}
 	}
 
