@@ -1,7 +1,12 @@
 #include <motus_pch.h>
 
 #include "RenderLayer.h"
+#include "Shader.h"
+
 #include <glad/glad.h>
+#include <Platform/OpenGL3/OpenGLShader.h>
+
+#include <Motus/Utils/Utils.h>
 
 namespace Motus {
 
@@ -35,6 +40,10 @@ namespace Motus {
 		glGenBuffers(1, &m_IBO);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_IBO);
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+
+		std::pair<std::string, std::string> shaderSource = Utils::ParseGlslFile("assets/shaders/shader.glsl");
+
+		m_Shader = new OpenGLShader(shaderSource.first, shaderSource.second);
 	}
 
 	void RenderLayer::OnDetach()
@@ -44,6 +53,7 @@ namespace Motus {
 
 	void RenderLayer::OnUpdate()
 	{
+		m_Shader->Bind();
 		glBindVertexArray(m_VAO);
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
 	}

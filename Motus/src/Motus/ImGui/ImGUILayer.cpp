@@ -11,8 +11,6 @@
 
 namespace Motus {
 
-	
-
 	ImGuiLayer::ImGuiLayer()
 		: Layer("ImGui Layer")
 	{

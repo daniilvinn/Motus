@@ -92,6 +92,9 @@
     <Lib>
       <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
+    <PostBuildEvent>
+      <Command>IF EXIST ..\bin\Debug-windows-x86_64\Motus\Motus.lib\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\Motus\Motus.lib ..\bin\Debug-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86_64\Motus\Motus.lib ..\bin\Debug-windows-x86_64\Sandbox &gt; nul)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -117,6 +120,9 @@
     <Lib>
       <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
+    <PostBuildEvent>
+      <Command>IF EXIST ..\bin\Release-windows-x86_64\Motus\Motus.lib\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86_64\Motus\Motus.lib ..\bin\Release-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86_64\Motus\Motus.lib ..\bin\Release-windows-x86_64\Sandbox &gt; nul)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
     <ClCompile>
@@ -142,6 +148,9 @@
     <Lib>
       <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
+    <PostBuildEvent>
+      <Command>IF EXIST ..\bin\Dist-windows-x86_64\Motus\Motus.lib\ (xcopy /Q /E /Y /I ..\bin\Dist-windows-x86_64\Motus\Motus.lib ..\bin\Dist-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Dist-windows-x86_64\Motus\Motus.lib ..\bin\Dist-windows-x86_64\Sandbox &gt; nul)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\Motus.h" />
@@ -163,6 +172,7 @@
     <ClInclude Include="src\Motus\Renderer\Context.h" />
     <ClInclude Include="src\Motus\Renderer\RenderLayer.h" />
     <ClInclude Include="src\Motus\Renderer\Shader.h" />
+    <ClInclude Include="src\Motus\Utils\Utils.h" />
     <ClInclude Include="src\Platform\OpenGL3\OpenGLContext.h" />
     <ClInclude Include="src\Platform\OpenGL3\OpenGLShader.h" />
     <ClInclude Include="src\Platform\Windows\WinInput.h" />
@@ -180,6 +190,7 @@
     <ClCompile Include="src\Motus\ImGui\imguicompile.cpp" />
     <ClCompile Include="src\Motus\Renderer\Context.cpp" />
     <ClCompile Include="src\Motus\Renderer\RenderLayer.cpp" />
+    <ClCompile Include="src\Motus\Utils\Utils.cpp" />
     <ClCompile Include="src\Platform\OpenGL3\OpenGLContext.cpp" />
     <ClCompile Include="src\Platform\OpenGL3\OpenGLShader.cpp" />
     <ClCompile Include="src\Platform\Windows\WinInput.cpp" />

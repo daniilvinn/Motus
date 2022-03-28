@@ -16,6 +16,9 @@
     <Filter Include="Motus\Renderer">
       <UniqueIdentifier>{430ADCB1-2FD8-CFB7-186C-40DE04D9AB1C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Motus\Utils">
+      <UniqueIdentifier>{1D05AA93-89BA-2289-12AF-1C607E63198D}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Platform">
       <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
     </Filter>
@@ -82,6 +85,9 @@
     <ClInclude Include="src\Motus\Renderer\Shader.h">
       <Filter>Motus\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Motus\Utils\Utils.h">
+      <Filter>Motus\Utils</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\OpenGL3\OpenGLContext.h">
       <Filter>Platform\OpenGL3</Filter>
     </ClInclude>
@@ -126,6 +132,9 @@
     </ClCompile>
     <ClCompile Include="src\Motus\Renderer\RenderLayer.cpp">
       <Filter>Motus\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Motus\Utils\Utils.cpp">
+      <Filter>Motus\Utils</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL3\OpenGLContext.cpp">
       <Filter>Platform\OpenGL3</Filter>

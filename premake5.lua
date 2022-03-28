@@ -66,6 +66,11 @@ project "Motus"
 		"_CRT_SECURE_NO_WARNINGS"
 	}
 
+	postbuildcommands 
+	{
+		("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
+	}
+
 	filter "system:windows"
 		staticruntime "on"
 		systemversion "latest"
@@ -122,6 +127,11 @@ project "Sandbox"
 	defines 
 	{
 		"MT_STATIC"
+	}
+
+	postbuildcommands
+	{
+		("{COPY} assets/shaders ../bin/" .. outputdir .. "/Sandbox/assets/shaders")
 	}
 
 	filter "system:windows"

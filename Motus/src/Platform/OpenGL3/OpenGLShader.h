@@ -1,10 +1,12 @@
 #include <motus_pch.h>
+#include <Motus/Core/Base.h>
+
 #include "Motus/Renderer/Shader.h"
 #include <stdint.h>
 
 namespace Motus {
 
-	class OpenGLShader final : Shader {
+	class MOTUS_API OpenGLShader final : public Shader {
 	public:
 		OpenGLShader(const std::string& vertsrc, const std::string& fragsrc);
 		~OpenGLShader();

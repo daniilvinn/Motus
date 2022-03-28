@@ -2,6 +2,7 @@
 
 #include <Motus/Core/Base.h>
 #include <Motus/Core/Layer.h>
+#include <Motus/Renderer/Shader.h>
 
 #include <stdint.h>
 
@@ -20,6 +21,7 @@ namespace Motus {
 		uint32_t m_VBO;
 		uint32_t m_VAO;
 		uint32_t m_IBO;
+		Shader* m_Shader;
 	};
 
 }

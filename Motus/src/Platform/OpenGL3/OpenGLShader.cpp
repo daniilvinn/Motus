@@ -31,7 +31,7 @@ namespace Motus {
 
 			glDeleteShader(vertexShader);
 
-			MT_CORE_ASSERT(false, "Failed to compile vertex shader! InfoLog: \n {0}", &infoLog[0]);
+			MT_CORE_ERROR("Failed to compile vertex shader! Info Log: {0}", &infoLog[0]);
 
 			return;
 		}
@@ -57,7 +57,7 @@ namespace Motus {
 			glDeleteShader(fragmentShader);
 			glDeleteShader(vertexShader);
 
-			MT_CORE_ASSERT(false, "Failed to compile vertex shader! InfoLog: \n {0}", &infoLog[0]);
+			MT_CORE_ERROR("Failed to compile fragment shader! Info Log: {0}", &infoLog[0]);
 
 			return;
 		}
@@ -86,7 +86,7 @@ namespace Motus {
 			glDeleteShader(vertexShader);
 			glDeleteShader(fragmentShader);
 
-			MT_CORE_ASSERT(false, "Failed to link a shader program! Info Log: \n {0}", &infoLog[0]);
+			MT_CORE_ERROR("Failed to link a shader program! Info Log: {0}", &infoLog[0]);
 
 			return;
 		}
