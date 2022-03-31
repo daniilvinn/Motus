@@ -3,6 +3,12 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# Defined .ignore directives
+*.sln
+*.vcxproj
+*.filters
+
+
 # User-specific files
 *.rsuser
 *.suo
@@ -32,6 +38,12 @@ bld/
 [Ll]og/
 [Ll]ogs/
 [Bb]in-int/
+[Bb]in/
+
+# Binaries
+*.lib
+*.exp
+*.idb
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
