@@ -41,8 +41,7 @@ namespace Motus {
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_IBO);
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
-		std::pair<std::string, std::string> shaderSource = Utils::ParseGlslFile("assets/shaders/shader.glsl");
-
+		ShaderSource shaderSource = Utils::ParseGlslFile("assets/shaders/shader.glsl");
 		m_Shader = new OpenGLShader(shaderSource.first, shaderSource.second);
 	}
 

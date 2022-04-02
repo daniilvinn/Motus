@@ -18,6 +18,8 @@ namespace Motus {
 		void OnImGuiRender() override;
 		void OnEvent(Event& event) override;
 	private:
+		using ShaderSource = std::pair<std::string, std::string>;
+
 		uint32_t m_VBO;
 		uint32_t m_VAO;
 		uint32_t m_IBO;
