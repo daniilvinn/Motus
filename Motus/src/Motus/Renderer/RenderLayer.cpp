@@ -2,6 +2,8 @@
 
 #include "RenderLayer.h"
 #include "Shader.h"
+#include "Buffers.h"
+#include "Renderer.h"
 
 #include <glad/glad.h>
 #include <Platform/OpenGL3/OpenGLShader.h>
