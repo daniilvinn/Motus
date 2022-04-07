@@ -2,6 +2,7 @@
 
 #include <Motus/Core/Base.h>
 #include <Motus/Renderer/Renderer.h>
+#include <Motus/Renderer/BufferLayout.h>
 #include <motus_pch.h>
 
 namespace Motus {
@@ -15,6 +16,9 @@ namespace Motus {
 
 		virtual void Bind() const = 0;
 		virtual void Unbind() const = 0;
+
+		virtual void SetLayout(const BufferLayout& layout) = 0;
+		virtual inline BufferLayout GetLayout() const = 0;
 
 		virtual void UploadData(float* data, uint16_t size) = 0;
 

@@ -37,6 +37,11 @@ namespace Motus {
 		glBufferData(GL_ARRAY_BUFFER, size, (const void*)data, GL_STATIC_DRAW);
 	}
 
+	void OpenGLVertexBuffer::SetLayout(const BufferLayout& layout)
+	{
+		m_Layout = layout;
+	}
+
 	// OpenGL Index Buffer Object class
 	OpenGLIndexBuffer::OpenGLIndexBuffer()
 	{

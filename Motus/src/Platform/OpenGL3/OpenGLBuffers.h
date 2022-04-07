@@ -14,11 +14,15 @@ namespace Motus {
 
 		void Bind() const override;
 		void Unbind() const override;
+
+		void SetLayout(const BufferLayout& layout) override;
+		inline BufferLayout GetLayout() const override { return m_Layout; };
+
 		void UploadData(float* data, uint16_t size) override;
 
 	private:
 		GLuint m_VBOid;
-
+		BufferLayout m_Layout;
 	};
 
 	class OpenGLIndexBuffer final : public IndexBuffer {
