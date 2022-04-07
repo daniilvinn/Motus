@@ -11,11 +11,12 @@ namespace Motus {
 		virtual ~VertexBuffer() {};
 
 		static Ref<VertexBuffer> Create();
+		static Ref<VertexBuffer> Create(float* data, uint16_t size);
 
 		virtual void Bind() const = 0;
 		virtual void Unbind() const = 0;
 
-		virtual void UploadData(float* data) = 0;
+		virtual void UploadData(float* data, uint16_t size) = 0;
 
 	public:
 
@@ -27,10 +28,11 @@ namespace Motus {
 		virtual ~IndexBuffer() {};
 
 		static Ref<IndexBuffer> Create();
+		static Ref<IndexBuffer> Create(unsigned int* data, uint16_t size);
 
 		virtual void Bind() const = 0;
 		virtual void Unbind() const = 0;
 
-		virtual void UploadData(unsigned int* data) = 0;
+		virtual void UploadData(unsigned int* data, uint16_t size) = 0;
 	};
 }

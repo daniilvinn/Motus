@@ -4,12 +4,6 @@
 
 namespace Motus {
 
-	template <typename T>
-	using Ref = std::unique_ptr<T>;
-
-	template <typename T>
-	using Scope = std::shared_ptr<T>;
-
 	enum class RendererAPI {
 		None = 0,		// Not supported
 		OpenGL = 1,		// Supported

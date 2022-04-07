@@ -22,7 +22,7 @@
 #define MOTUS_NAMESPACE_BEGIN namespace Motus {
 #define MOTUS_NAMESPACE_END }
 
-#ifdef MT_DEBUG
+#if defined(MT_DEBUG) || defined(MT_RELEASE)
 	#ifndef MT_ASSERTS_ENABLED
 		#define MT_ASSERTS_ENABLED
 		#ifdef MT_PLATFORM_WINDOWS
@@ -45,3 +45,24 @@
 // https://github.com/TheCherno
 #define MT_BIND_EVENT_FUNCTION(fn) [this](auto&&... args) -> decltype(auto) { return this->fn(std::forward<decltype(args)>(args)...); }
 // --------------------------------------
+
+
+#include <memory>
+
+namespace Motus {
+	template <typename T>
+	using Scope = std::unique_ptr<T>;
+
+	template <typename T>
+	using Ref = std::shared_ptr<T>;
+
+	template <typename T, typename ... Args>
+	constexpr Scope<T> CreateScope(Args&& ... args) {
+		return std::make_unique<T>(std::forward<Args>(args)...);
+	}
+
+	template <typename T, typename ... Args>
+	constexpr Ref<T> CreateRef(Args&& ... args) {
+		return std::make_shared<T>(std::forward<Args>(args)...);
+	}
+}

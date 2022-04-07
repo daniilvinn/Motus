@@ -47,6 +47,7 @@ namespace Motus {
 			WindowCloseEvent event;
 			app.OnEvent(event);
 		}
+		ImGui::End();
 	}
 
 	void ImGuiLayer::OnAttach()
@@ -91,8 +92,6 @@ namespace Motus {
 	void ImGuiLayer::ImGuiEnd()
 	{
 		ImGuiIO& io = ImGui::GetIO();
-
-		ImGui::End();
 
 		ImGui::Render();
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());

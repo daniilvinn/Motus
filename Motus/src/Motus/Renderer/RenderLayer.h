@@ -3,6 +3,7 @@
 #include <Motus/Core/Base.h>
 #include <Motus/Core/Layer.h>
 #include <Motus/Renderer/Shader.h>
+#include <Motus/Renderer/Buffers.h>
 
 #include <stdint.h>
 
@@ -20,10 +21,10 @@ namespace Motus {
 	private:
 		using ShaderSource = std::pair<std::string, std::string>;
 
-		uint32_t m_VBO;
+		Ref<VertexBuffer> m_VBO;
+		Ref<IndexBuffer> m_IBO;
 		uint32_t m_VAO;
-		uint32_t m_IBO;
-		Shader* m_Shader;
+		Ref<Shader> m_Shader;
 	};
 
 }
