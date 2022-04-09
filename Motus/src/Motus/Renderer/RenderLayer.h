@@ -4,6 +4,7 @@
 #include <Motus/Core/Layer.h>
 #include <Motus/Renderer/Shader.h>
 #include <Motus/Renderer/Buffers.h>
+#include <Motus/Renderer/VertexArray.h>
 
 #include <stdint.h>
 
@@ -23,7 +24,7 @@ namespace Motus {
 
 		Ref<VertexBuffer> m_VBO;
 		Ref<IndexBuffer> m_IBO;
-		uint32_t m_VAO;
+		Ref<VertexArray> m_VAO;
 		Ref<Shader> m_Shader;
 	};
 
