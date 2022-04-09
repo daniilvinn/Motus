@@ -2,6 +2,7 @@
 
 #include <Motus/Core/Base.h>
 #include <Motus/Renderer/Buffers.h>
+#include <Motus/Renderer/BufferLayout.h>
 #include <Motus/Renderer/Shader.h>
 
 namespace Motus {

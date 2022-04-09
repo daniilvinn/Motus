@@ -61,7 +61,7 @@ namespace Motus {
 			size = GetSizeOfType(datatype);
 		}
 
-		uint8_t GetComponentCount() {
+		uint8_t GetComponentCount() const {
 			switch (type)
 			{
 			case Motus::Float:		return 1;
