@@ -6,8 +6,6 @@
 #include <Motus/Renderer/Buffers.h>
 #include <Motus/Renderer/VertexArray.h>
 
-#include <stdint.h>
-
 namespace Motus {
 
 	// Main layer definition. Renders all objects in scene
@@ -26,6 +24,7 @@ namespace Motus {
 		Ref<IndexBuffer> m_IBO;
 		Ref<VertexArray> m_VAO;
 		Ref<Shader> m_Shader;
+
 	};
 
 }

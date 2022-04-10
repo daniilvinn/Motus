@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <stdint.h>
 #include <memory>
 #include <utility>
 #include <functional>
