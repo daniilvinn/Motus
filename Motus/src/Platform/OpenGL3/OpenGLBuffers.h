@@ -9,7 +9,7 @@ namespace Motus {
 	class OpenGLVertexBuffer final : public VertexBuffer {
 	public:
 		OpenGLVertexBuffer();
-		OpenGLVertexBuffer(float* data, uint16_t size);
+		OpenGLVertexBuffer(float* data, uint32_t size);
 		~OpenGLVertexBuffer() override;
 
 		void Bind() const override;
@@ -18,7 +18,7 @@ namespace Motus {
 		void SetLayout(const BufferLayout& layout) override;
 		inline BufferLayout GetLayout() const override { return m_Layout; };
 
-		void UploadData(float* data, uint16_t size) override;
+		void UploadData(float* data, uint32_t size) override;
 
 	private:
 		GLuint m_VBOid;
@@ -28,16 +28,19 @@ namespace Motus {
 	class OpenGLIndexBuffer final : public IndexBuffer {
 	public:
 		OpenGLIndexBuffer();
-		OpenGLIndexBuffer(unsigned int* data, uint16_t size);
+		OpenGLIndexBuffer(unsigned int* data, uint32_t size);
 		~OpenGLIndexBuffer() override;
 
 		void Bind() const override;
 		void Unbind() const override;
-		void UploadData(unsigned int* data, uint16_t size) override;
+
+		inline uint32_t GetCount() const override { return m_Count; };
+
+		void UploadData(unsigned int* data, uint32_t size) override;
 
 	private:
 		GLuint m_IBOid;
-
+		uint32_t m_Count;
 	};
 
 }

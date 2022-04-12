@@ -7,26 +7,24 @@
 
 namespace Motus {
 
-
-
 	Ref<VertexBuffer> VertexBuffer::Create()
 	{
 		switch (Renderer::GetAPI())
 		{
-		case RendererAPI::None:
-			MT_CORE_ASSERT(false, "None is currently not supperted!");
+		case RendererAPI::API::None:
+			MT_CORE_ASSERT(false, "None is currently not supported!");
 			break;
-		case RendererAPI::OpenGL:
+		case RendererAPI::API::OpenGL:
 			return CreateRef<OpenGLVertexBuffer>();
 			break;
-		case RendererAPI::D3D11:
-			MT_CORE_ASSERT(false, "DirectX11 is currently not supperted!");
+		case RendererAPI::API::D3D11:
+			MT_CORE_ASSERT(false, "DirectX11 is currently not supported!");
 			break;
-		case RendererAPI::Vulkan:
-			MT_CORE_ASSERT(false, "Vulkan is currently not supperted!");
+		case RendererAPI::API::Vulkan:
+			MT_CORE_ASSERT(false, "Vulkan is currently not supported!");
 			break;
-		case RendererAPI::Metal:
-			MT_CORE_ASSERT(false, "Metal is currently not supperted!");
+		case RendererAPI::API::Metal:
+			MT_CORE_ASSERT(false, "Metal is currently not supported!");
 			break;
 
 		default:
@@ -35,24 +33,24 @@ namespace Motus {
 	}
 
 
-	Ref<VertexBuffer> VertexBuffer::Create(float* data, uint16_t size)
+	Ref<VertexBuffer> VertexBuffer::Create(float* data, uint32_t size)
 	{
 		switch (Renderer::GetAPI())
 		{
-		case RendererAPI::None:
-			MT_CORE_ASSERT(false, "None is currently not supperted!");
+		case RendererAPI::API::None:
+			MT_CORE_ASSERT(false, "None is currently not supported!");
 			break;
-		case RendererAPI::OpenGL:
+		case RendererAPI::API::OpenGL:
 			return CreateRef<OpenGLVertexBuffer>(data, size);
 			break;
-		case RendererAPI::D3D11:
-			MT_CORE_ASSERT(false, "DirectX11 is currently not supperted!");
+		case RendererAPI::API::D3D11:
+			MT_CORE_ASSERT(false, "DirectX11 is currently not supported!");
 			break;
-		case RendererAPI::Vulkan:
-			MT_CORE_ASSERT(false, "Vulkan is currently not supperted!");
+		case RendererAPI::API::Vulkan:
+			MT_CORE_ASSERT(false, "Vulkan is currently not supported!");
 			break;
-		case RendererAPI::Metal:
-			MT_CORE_ASSERT(false, "Metal is currently not supperted!");
+		case RendererAPI::API::Metal:
+			MT_CORE_ASSERT(false, "Metal is currently not supported!");
 			break;
 
 		default:
@@ -64,19 +62,19 @@ namespace Motus {
 	{
 		switch (Renderer::GetAPI())
 		{
-		case RendererAPI::None:
+		case RendererAPI::API::None:
 			MT_CORE_ASSERT(false, "None is currently not supported!");
 			break;
-		case RendererAPI::OpenGL:
+		case RendererAPI::API::OpenGL:
 			return CreateRef<OpenGLIndexBuffer>();
 			break;
-		case RendererAPI::D3D11:
+		case RendererAPI::API::D3D11:
 			MT_CORE_ASSERT(false, "DirectX11 is currently not supported!");
 			break;
-		case RendererAPI::Vulkan:
+		case RendererAPI::API::Vulkan:
 			MT_CORE_ASSERT(false, "Vulkan is currently not supported!");
 			break;
-		case RendererAPI::Metal:
+		case RendererAPI::API::Metal:
 			MT_CORE_ASSERT(false, "Metal is currently not supported!");
 			break;
 
@@ -85,23 +83,23 @@ namespace Motus {
 		}
 	}
 
-	Ref<IndexBuffer> IndexBuffer::Create(unsigned int* data, uint16_t size)
+	Ref<IndexBuffer> IndexBuffer::Create(unsigned int* data, uint32_t size)
 	{
 		switch (Renderer::GetAPI())
 		{
-		case RendererAPI::None:
+		case RendererAPI::API::None:
 			MT_CORE_ASSERT(false, "None is currently not supported!");
 			break;
-		case RendererAPI::OpenGL:
+		case RendererAPI::API::OpenGL:
 			return CreateRef<OpenGLIndexBuffer>(data, size);
 			break;
-		case RendererAPI::D3D11:
+		case RendererAPI::API::D3D11:
 			MT_CORE_ASSERT(false, "DirectX11 is currently not supported!");
 			break;
-		case RendererAPI::Vulkan:
+		case RendererAPI::API::Vulkan:
 			MT_CORE_ASSERT(false, "Vulkan is currently not supported!");
 			break;
-		case RendererAPI::Metal:
+		case RendererAPI::API::Metal:
 			MT_CORE_ASSERT(false, "Metal is currently not supported!");
 			break;
 

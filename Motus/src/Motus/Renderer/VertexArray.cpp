@@ -1,33 +1,33 @@
 #include <motus_pch.h>
 #include "VertexArray.h"
 
+#include <Motus/Renderer/Renderer.h>
+
 #include <Platform/OpenGL3/OpenGLVertexArray.h>
 
 namespace Motus {
 
-
-
-	Ref<Motus::VertexArray> VertexArray::Create()
+	Ref<VertexArray> VertexArray::Create()
 	{
 		switch (Renderer::GetAPI())
 		{
-		case RendererAPI::None:
+		case RendererAPI::API::None:
 			MT_ASSERT(false, "None is currently not supported!");
 			break;
 
-		case RendererAPI::OpenGL:
+		case RendererAPI::API::OpenGL:
 			return CreateRef<OpenGLVertexArray>();
 			break;
 
-		case RendererAPI::D3D11:
+		case RendererAPI::API::D3D11:
 			MT_ASSERT(false, "D3D11 is currently not supported!");
 			break;
 
-		case RendererAPI::Vulkan:
+		case RendererAPI::API::Vulkan:
 			MT_ASSERT(false, "Vulkan is currently not supported!");
 			break;
 
-		case RendererAPI::Metal:
+		case RendererAPI::API::Metal:
 			MT_ASSERT(false, "Metal is currently not supported!");
 			break;
 

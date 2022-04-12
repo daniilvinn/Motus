@@ -1,9 +1,8 @@
 #pragma once
 
 #include <Motus/Core/Base.h>
-#include <motus_pch.h>
 
-#include "Renderer.h"
+#include "Buffers.h"
 
 namespace Motus {
 
@@ -17,6 +16,8 @@ namespace Motus {
 
 		virtual void AddVertexBuffer(const Ref<VertexBuffer>& vbo) = 0;
 		virtual void AddIndexBuffer(const Ref<IndexBuffer>& ibo) = 0;
+
+		inline virtual Ref<IndexBuffer> GetIndexBuffer() = 0;
 
 	};
 

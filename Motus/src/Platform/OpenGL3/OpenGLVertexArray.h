@@ -2,6 +2,7 @@
 
 #include <Motus/Core/Base.h>
 #include <Motus/Renderer/VertexArray.h>
+#include <Motus/Renderer/BufferLayout.h>
 
 namespace Motus {
 
@@ -11,11 +12,13 @@ namespace Motus {
 		OpenGLVertexArray();
 		~OpenGLVertexArray() override;
 
+		void Bind() const override;
+		void Unbind() const override;
+
 		void AddVertexBuffer(const Ref<VertexBuffer>& vbo) override;
 		void AddIndexBuffer(const Ref<IndexBuffer>& ibo) override;
 
-		void Bind() const override;
-		void Unbind() const override;
+		Ref<IndexBuffer> GetIndexBuffer() override { return m_IBO; };
 
 	private:
 		unsigned int m_VAOid;

@@ -1,9 +1,7 @@
 #pragma once
 
 #include <Motus/Core/Base.h>
-#include <Motus/Renderer/Renderer.h>
 #include <Motus/Renderer/BufferLayout.h>
-#include <motus_pch.h>
 
 namespace Motus {
 
@@ -12,7 +10,7 @@ namespace Motus {
 		virtual ~VertexBuffer() {};
 
 		static Ref<VertexBuffer> Create();
-		static Ref<VertexBuffer> Create(float* data, uint16_t size);
+		static Ref<VertexBuffer> Create(float* data, uint32_t size);
 
 		virtual void Bind() const = 0;
 		virtual void Unbind() const = 0;
@@ -20,7 +18,7 @@ namespace Motus {
 		virtual void SetLayout(const BufferLayout& layout) = 0;
 		virtual inline BufferLayout GetLayout() const = 0;
 
-		virtual void UploadData(float* data, uint16_t size) = 0;
+		virtual void UploadData(float* data, uint32_t size) = 0;
 
 	public:
 
@@ -32,11 +30,13 @@ namespace Motus {
 		virtual ~IndexBuffer() {};
 
 		static Ref<IndexBuffer> Create();
-		static Ref<IndexBuffer> Create(unsigned int* data, uint16_t size);
+		static Ref<IndexBuffer> Create(unsigned int* data, uint32_t size);
 
 		virtual void Bind() const = 0;
 		virtual void Unbind() const = 0;
 
-		virtual void UploadData(unsigned int* data, uint16_t size) = 0;
+		virtual uint32_t GetCount() const = 0;
+
+		virtual void UploadData(unsigned int* data, uint32_t size) = 0;
 	};
 }

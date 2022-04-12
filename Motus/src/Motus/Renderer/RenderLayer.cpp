@@ -71,7 +71,6 @@ namespace Motus {
 		m_Shader->Bind();
 		m_VAO->Bind();
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
-
 	}
 
 	void RenderLayer::OnImGuiRender()

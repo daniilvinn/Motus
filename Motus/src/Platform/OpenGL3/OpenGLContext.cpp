@@ -7,7 +7,9 @@
 namespace Motus {
 	OpenGLContext::OpenGLContext(GLFWwindow* handle)
 		: m_Handle(handle)
-	{ MT_CORE_ASSERT(handle, "Window handle pointer is null!") }
+	{
+		MT_CORE_ASSERT(handle, "Window handle pointer is null!")
+	}
 
 	void OpenGLContext::Init()
 	{
