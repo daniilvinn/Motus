@@ -1,8 +1,6 @@
 #pragma once
 
 #include <Motus/Core/Base.h>
-//#include <Motus/Renderer/Buffers.h>
-//#include <Motus/Renderer/BufferLayout.h>
 #include <Motus/Renderer/VertexArray.h>
 #include <Motus/Renderer/Shader.h>
 #include <Motus/Renderer/RendererAPI.h>
@@ -16,10 +14,10 @@ namespace Motus {
 		~Renderer();
 
 		// TODO: Implement sorting and culling 
-		void BeginScene();
-		void EndScene();
+		static void BeginScene();
+		static void EndScene();
 
-		void Submit(const Ref<VertexArray>& );
+		static void Submit(const Ref<VertexArray>& vao);
 
 		inline static RendererAPI::API GetAPI() { return s_API->GetAPI(); };
 

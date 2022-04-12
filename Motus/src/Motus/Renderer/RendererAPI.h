@@ -2,6 +2,8 @@
 
 #include <Motus/Core/Base.h>
 
+#include <Motus/Renderer/VertexArray.h>
+
 namespace Motus {
 
 	class MOTUS_API RendererAPI {
@@ -15,6 +17,9 @@ namespace Motus {
 		};
 
 		inline static API GetAPI() { return s_API; };
+		virtual void DrawIndexed(const Ref<VertexArray>& vao) = 0;
+		virtual void Clear() = 0;
+		virtual void ClearColor(float r, float g, float b, float a) = 0;
 
 	private:
 		static API s_API;

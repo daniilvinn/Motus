@@ -2,10 +2,10 @@
 
 #include "Application.h"
 #include "Logger.h"
-#include "Motus/ImGui/ImGUILayer.h"
-#include "Motus/Renderer/RenderLayer.h"
+#include <Motus/ImGui/ImGUILayer.h>
+#include <Motus/Renderer/RenderLayer.h>
 
-#include <glad/glad.h>
+#include <Motus/Renderer/RenderCommand.h>
 
 
 namespace Motus {
@@ -34,8 +34,8 @@ namespace Motus {
 	{
 		while (m_IsRunning)
 		{
-			glClear(GL_COLOR_BUFFER_BIT);
-			glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
+			RenderCommand::Clear();
+			RenderCommand::ClearColor(0.1f, 0.1f, 0.1f, 1.0f);
 
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();

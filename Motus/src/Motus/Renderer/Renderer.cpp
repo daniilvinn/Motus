@@ -1,6 +1,8 @@
 #include <motus_pch.h>
 #include "Renderer.h"
 
+#include <Motus/Renderer/RenderCommand.h>
+
 #include <Platform/OpenGL3/OpenGLRendererAPI.h>
 
 // Renderer methods implementation
@@ -29,9 +31,10 @@ namespace Motus {
 
 	}
 
-	void Renderer::Submit(const Ref<VertexArray>&)
+	// TODO: implement deferred renderer
+	void Renderer::Submit(const Ref<VertexArray>& vao)
 	{
-		
+		RenderCommand::DrawIndexed(vao);
 	}
 	
 

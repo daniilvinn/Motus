@@ -3,9 +3,7 @@
 #include "RenderLayer.h"
 #include "Renderer.h"
 
-#include <glad/glad.h>
 #include <Platform/OpenGL3/OpenGLShader.h>
-#include <Platform/OpenGL3/OpenGLBuffers.h>
 
 #include <Motus/Utils/Utils.h>
 
@@ -69,8 +67,10 @@ namespace Motus {
 	void RenderLayer::OnUpdate()
 	{
 		m_Shader->Bind();
-		m_VAO->Bind();
-		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
+
+		Renderer::BeginScene();
+		Renderer::Submit(m_VAO);
+		Renderer::EndScene();
 	}
 
 	void RenderLayer::OnImGuiRender()
