@@ -1,6 +1,8 @@
 #include <motus_pch.h>
 #include "OpenGLVertexArray.h"
 
+#include <Motus/Renderer/Shader.h>
+
 #include <glad/glad.h>
 
 namespace Motus {

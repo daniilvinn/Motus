@@ -7,7 +7,6 @@ namespace Motus {
 
 	void OpenGLRendererAPI::DrawIndexed(const Ref<VertexArray>& vao)
 	{
-		vao->Bind();
 		glDrawElements(GL_TRIANGLES, vao->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr);
 	}
 

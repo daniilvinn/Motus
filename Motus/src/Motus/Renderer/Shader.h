@@ -3,7 +3,15 @@
 #include <Motus/Core/Base.h>
 #include <stdint.h>
 
+typedef unsigned int GLenum;
+
 namespace Motus {
+
+	enum ShaderDataType {
+		Float, Float2, Float3, Float4, Mat3, Mat4, Int, Int2, Int3, Int4, Bool
+	};
+
+	GLenum ShaderDataTypeToOpenGLMacro(ShaderDataType type);
 
 	// Graphics API Shader base class definition. To be implemented per Graphics API in Motus/Platform
 	class MOTUS_API Shader {
@@ -12,6 +20,8 @@ namespace Motus {
 
 		virtual void Bind() const = 0;
 		virtual void Unbind() const = 0;
+
+		static Ref<Shader> Create(std::string vertexsrc, std::string fragmentsrc);
 
 		virtual inline uint32_t GetID() const = 0;
 	};

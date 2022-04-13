@@ -34,6 +34,7 @@ namespace Motus {
 	// TODO: implement deferred renderer
 	void Renderer::Submit(const Ref<VertexArray>& vao)
 	{
+		vao->Bind();
 		RenderCommand::DrawIndexed(vao);
 	}
 	

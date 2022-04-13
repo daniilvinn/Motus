@@ -3,10 +3,11 @@
 #include "Application.h"
 #include "Logger.h"
 #include <Motus/ImGui/ImGUILayer.h>
-#include <Motus/Renderer/RenderLayer.h>
 
 #include <Motus/Renderer/RenderCommand.h>
 
+// HACK
+#include <glad/glad.h>
 
 namespace Motus {
 
@@ -22,7 +23,6 @@ namespace Motus {
 
 		m_ImGuiLayer = new ImGuiLayer();
 		PushOverlay(m_ImGuiLayer);
-		PushLayer(new RenderLayer());
 	}
 
 	Application::~Application() 

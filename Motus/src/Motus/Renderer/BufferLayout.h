@@ -2,13 +2,12 @@
 
 #include <Motus/Core/Base.h>
 #include <motus_pch.h>
-#include <glad/glad.h>
+
+#include "Shader.h"
 
 namespace Motus {
 	
-	enum ShaderDataType {
-		Float, Float2, Float3, Float4, Mat3, Mat4, Int, Int2, Int3, Int4, Bool
-	};
+	
 
 	constexpr static uint8_t GetSizeOfType(ShaderDataType datatype) {
 		switch (datatype)
@@ -24,25 +23,6 @@ namespace Motus {
 		case Motus::ShaderDataType::Int3:		return 4 * 3;
 		case Motus::ShaderDataType::Int4:		return 4 * 4;
 		case Motus::ShaderDataType::Bool:		return 1;
-		default:
-			MT_CORE_ASSERT(false, "Invalid shader data type!");
-		}
-	}
-
-	constexpr GLenum ShaderDataTypeToOpenGLMacro(ShaderDataType type) {
-		switch (type)
-		{
-		case Motus::Float:		return GL_FLOAT;
-		case Motus::Float2:		return GL_FLOAT;
-		case Motus::Float3:		return GL_FLOAT;
-		case Motus::Float4:		return GL_FLOAT;
-		case Motus::Mat3:		return GL_FLOAT;
-		case Motus::Mat4:		return GL_FLOAT;
-		case Motus::Int:		return GL_INT;
-		case Motus::Int2:		return GL_INT;
-		case Motus::Int3:		return GL_INT;
-		case Motus::Int4:		return GL_INT;
-		case Motus::Bool:		return GL_BOOL;
 		default:
 			MT_CORE_ASSERT(false, "Invalid shader data type!");
 		}
