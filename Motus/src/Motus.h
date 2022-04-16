@@ -9,13 +9,19 @@
 #include "Motus/Core/KeyCodes.h"
 
 #include "Motus/ImGui/ImGUILayer.h"
+#include <Motus/Utils/Utils.h>
 
-//
+// ------ GLM --------
+#include "glm/glm.hpp"
+#include "glm/gtc/type_ptr.hpp"
+// -------------------
+
+// ------Renderer-----------------------
 #include <Motus/Renderer/Renderer.h>
 #include <Motus/Renderer/VertexArray.h>
 #include <Motus/Renderer/BufferLayout.h>
-#include <Motus/Utils/Utils.h>
-//
+#include <Motus/Renderer/OrthoCamera.h>
+// -------------------------------------
 
 // ------Events---------------------------
 #include "Motus/Events/ApplicationEvent.h"

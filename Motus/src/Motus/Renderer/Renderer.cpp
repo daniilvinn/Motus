@@ -10,6 +10,7 @@ namespace Motus {
 
 	// REMINDER: Change RendererAPI pointer if want to change using rendering API (OpenGL, D3D etc.)
 	RendererAPI* Renderer::s_API = new OpenGLRendererAPI;
+	Renderer::SceneData Renderer::m_SceneData = SceneData();
 
 	Renderer::Renderer()
 	{
@@ -21,9 +22,9 @@ namespace Motus {
 
 	}
 
-	void Renderer::BeginScene()
+	void Renderer::BeginScene(const OrthographicCamera& camera)
 	{
-
+		m_SceneData.m_VPMatrix = camera.GetVPMatrix();
 	}
 
 	void Renderer::EndScene()
@@ -37,7 +38,5 @@ namespace Motus {
 		vao->Bind();
 		RenderCommand::DrawIndexed(vao);
 	}
-	
-
 
 }

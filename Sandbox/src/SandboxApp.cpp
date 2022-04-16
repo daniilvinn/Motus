@@ -1,6 +1,8 @@
 #include <Motus.h>
 #include <imgui/imgui.h>
 
+using namespace Motus;
+
 class RenderLayer : public Motus::Layer {
 public:
 	using ShaderSource = std::pair<std::string, std::string>;
@@ -55,6 +57,12 @@ public:
 			ShaderSource shaderSource = Motus::Utils::ParseGlslFile("assets/shaders/shader.glsl");
 			m_Shader = Motus::Shader::Create(shaderSource.first, shaderSource.second);
 		}
+
+		{
+			// Camera setup
+			m_Camera.SetProjection(-1.6f, 1.6f, -0.9f, 0.9f);
+			m_Camera.SetPosition(glm::vec3(0.3f, 0.3f, 0.0f));
+		}
 	}
 
 	void OnDetach() override
@@ -62,31 +70,40 @@ public:
 		
 	}
 
-
 	void OnUpdate() override
 	{
-		m_Shader->Bind();
-
-		Motus::Renderer::BeginScene();
+		Motus::Renderer::BeginScene(m_Camera);
 		{
-			if (Motus::Input::IsKeyPressed(MT_KEY_W)) {
-				Motus::Renderer::Submit(m_VAO);
-			}
+			const Renderer::SceneData& sceneData = Renderer::GetSceneData();
+
+			m_Shader->Bind();
+			m_Shader->UploadMat4("u_VP", sceneData.m_VPMatrix);
+
+			Motus::Renderer::Submit(m_VAO);
 		}
 		Motus::Renderer::EndScene();
-
 	}
 
-
-	void OnImGuiRender() override {}
+	void OnImGuiRender() override 
+	{
+		ImGui::Begin("Camera Controller");
+		static glm::vec3 cameraposition = glm::vec3(0.0f);
+		static float camerarotation;
+		ImGui::SliderFloat2("Position", glm::value_ptr(cameraposition), -1.0f, 1.0f);
+		ImGui::SliderFloat("Rotation", &camerarotation, 0.0f, 360.0f);
+		m_Camera.SetRotation(camerarotation);
+		m_Camera.SetPosition(cameraposition);
+		ImGui::End();
+	}
 
 	void OnEvent(Motus::Event& event) override {}
 
 private:
-	std::shared_ptr<Motus::VertexBuffer> m_VBO;
-	std::shared_ptr<Motus::IndexBuffer> m_IBO;
-	std::shared_ptr<Motus::VertexArray> m_VAO;
-	std::shared_ptr<Motus::Shader> m_Shader;
+	std::shared_ptr<VertexBuffer> m_VBO;
+	std::shared_ptr<IndexBuffer> m_IBO;
+	std::shared_ptr<VertexArray> m_VAO;
+	std::shared_ptr<Shader> m_Shader;
+	OrthographicCamera m_Camera;
 };
 
 class Sandbox : public Motus::Application {
@@ -102,7 +119,6 @@ public:
 	}
 
 private:
-
 
 };
 
