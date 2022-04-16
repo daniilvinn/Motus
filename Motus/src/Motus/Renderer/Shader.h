@@ -3,6 +3,8 @@
 #include <Motus/Core/Base.h>
 #include <stdint.h>
 
+#include <glm/glm.hpp>
+
 typedef unsigned int GLenum;
 
 namespace Motus {
@@ -20,6 +22,8 @@ namespace Motus {
 
 		virtual void Bind() const = 0;
 		virtual void Unbind() const = 0;
+
+		virtual void UploadMat4(const std::string& uniform, const glm::mat4& matrix) = 0;
 
 		static Ref<Shader> Create(std::string vertexsrc, std::string fragmentsrc);
 

@@ -22,7 +22,7 @@
 #define MOTUS_NAMESPACE_BEGIN namespace Motus {
 #define MOTUS_NAMESPACE_END }
 
-#if defined(MT_DEBUG) || defined(MT_RELEASE)
+#ifdef MT_DEBUG
 	#ifndef MT_ASSERTS_ENABLED
 		#define MT_ASSERTS_ENABLED
 		#ifdef MT_PLATFORM_WINDOWS

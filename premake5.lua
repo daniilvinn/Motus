@@ -116,7 +116,8 @@ project "Sandbox"
 	{
 		"Motus/vendor/spdlog/include",
 		"Motus/src",
-		"Motus/vendor"
+		"Motus/vendor",
+		"%{IncludeDir.glm}"
 	}
 
 	links 

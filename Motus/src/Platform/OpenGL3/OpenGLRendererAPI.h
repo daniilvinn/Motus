@@ -10,6 +10,7 @@ namespace Motus {
 		void DrawIndexed(const Ref<VertexArray>& vao) override;
 		void Clear() override;
 		void ClearColor(float r, float g, float b, float a) override;
+		virtual void SetViewport(int x, int y, int width, int height) override;
 	private:
 		
 	};

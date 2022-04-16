@@ -13,8 +13,8 @@ namespace Motus {
 
 		WindowProperties(
 			const std::string& title = "Motus Engine", 
-			uint16_t width = 1280, 
-			uint16_t height = 720
+			uint16_t width = 1600, 
+			uint16_t height = 900
 		) : m_Title(title), m_WindowWidth(width), m_WindowHeight(height) {}
 
 	};

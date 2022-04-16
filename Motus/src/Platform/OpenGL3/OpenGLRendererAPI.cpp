@@ -20,4 +20,9 @@ namespace Motus {
 		glClearColor(r, g, b, a);
 	}
 
+	void OpenGLRendererAPI::SetViewport(int x, int y, int width, int height)
+	{
+		glViewport(x, y, width, height);
+	};
+
 }

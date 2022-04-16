@@ -6,9 +6,6 @@
 
 #include <Motus/Renderer/RenderCommand.h>
 
-// HACK
-#include <glad/glad.h>
-
 namespace Motus {
 
 	Application* Application::m_Instance = nullptr;
@@ -88,7 +85,7 @@ namespace Motus {
 
 	bool Application::OnWindowResize(WindowResizeEvent& event)
 	{
-		glViewport(0, 0, event.GetWindowWidth(), event.GetWindowHeight());
+		RenderCommand::SetViewport(0, 0, event.GetWindowWidth(), event.GetWindowHeight());
 		return true;
 	}
 

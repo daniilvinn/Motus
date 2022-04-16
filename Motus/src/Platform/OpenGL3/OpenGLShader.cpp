@@ -2,6 +2,7 @@
 #include "OpenGLShader.h"
 
 #include <glad/glad.h>
+#include <glm/gtc/type_ptr.hpp>
 
 namespace Motus {
 
@@ -111,5 +112,10 @@ namespace Motus {
 		glUseProgram(NULL);
 	}
 
+	void OpenGLShader::UploadMat4(const std::string& uniform, const glm::mat4& matrix)
+	{
+		GLint uniformloc = glGetUniformLocation(m_ShaderID, uniform.c_str());
+		glUniformMatrix4fv(uniformloc, 1, GL_FALSE, glm::value_ptr(matrix));
+	}
 
 }

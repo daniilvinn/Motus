@@ -14,6 +14,8 @@ namespace Motus {
 		void Bind() const override;
 		void Unbind() const override;
 
+		void UploadMat4(const std::string& uniform, const glm::mat4& matrix) override;
+
 		inline uint32_t GetID() const override { return m_ShaderID; };
 	private:
 		uint32_t m_ShaderID;
