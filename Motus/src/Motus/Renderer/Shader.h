@@ -23,11 +23,16 @@ namespace Motus {
 		virtual void Bind() const = 0;
 		virtual void Unbind() const = 0;
 
-		virtual void UploadMat4(const std::string& uniform, const glm::mat4& matrix) = 0;
+		// Set all uniforms' name list to cache their location
+		virtual void SetUniformList(std::initializer_list<std::string> list) = 0;
+		virtual inline uint32_t GetID() const = 0;
 
+		virtual void UploadMat4(const std::string& uniform, const glm::mat4& matrix) = 0;
 		static Ref<Shader> Create(std::string vertexsrc, std::string fragmentsrc);
 
-		virtual inline uint32_t GetID() const = 0;
+
+	private:
+		virtual int32_t GetCachedUniformLocation(std::string uniform) const = 0;
 	};
 
 }

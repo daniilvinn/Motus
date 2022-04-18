@@ -112,10 +112,20 @@ namespace Motus {
 		glUseProgram(NULL);
 	}
 
+	void OpenGLShader::SetUniformList(std::initializer_list<std::string> list)
+	{
+		for (auto element : list) {
+			int uniformLocation = glGetUniformLocation(m_ShaderID, element.c_str());
+			m_UniformLocationCache.emplace(element, uniformLocation);
+		}
+	}
+
 	void OpenGLShader::UploadMat4(const std::string& uniform, const glm::mat4& matrix)
 	{
-		GLint uniformloc = glGetUniformLocation(m_ShaderID, uniform.c_str());
+		GLint uniformloc = GetCachedUniformLocation(uniform);
+		MT_CORE_ASSERT(uniformloc != -1, "Failed to read cached uniform location!"); // Maybe forgot to call SetUniformList()?
 		glUniformMatrix4fv(uniformloc, 1, GL_FALSE, glm::value_ptr(matrix));
 	}
+
 
 }
